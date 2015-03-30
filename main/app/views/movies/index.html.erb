@@ -1,0 +1,13 @@
+<h3> <%= link_to "Add a new Movie:", new_movie_path%></h3><br>
+
+
+<fieldset>
+  <div class="movies">
+    <% @movies.each do | movie | %>
+    <div class="mo panel">
+      <%= link_to movie.title, movie_path(movie)%>
+      <%= movie.year %>
+    </div>
+    <% end %>
+  </div>
+</fieldset>

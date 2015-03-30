@@ -33,6 +33,10 @@
     </div>
   <%- end -%>
 
+  <% if notice %>
+    <div class="notice"><%= notice %></div>
+  <% end %>
+
 
   <%= yield %>
 

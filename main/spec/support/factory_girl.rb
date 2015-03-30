@@ -14,6 +14,7 @@ FactoryGirl.define do
   factory :movie do
     sequence(:title) { |n| "Ocean's 1#{n}"}
     sequence(:year) { |n| "202#{n}" }
+    sequence(:user_id) { |n| n + 1 }
   end
 
   factory :movie_revise do

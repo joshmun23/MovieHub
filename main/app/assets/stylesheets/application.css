@@ -15,3 +15,13 @@
  *= require foundation_and_overrides
 
  */
+
+ .flash {
+  background-color: #49A840; /* green */
+  border-radius: 0.5em;
+  color: #fff;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  display: inline-block;
+}

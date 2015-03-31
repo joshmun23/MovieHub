@@ -3,7 +3,6 @@ class Movie < ActiveRecord::Base
 
   validates :title, presence: true
   validates :year, presence: true
-  validates :user_id,
-    presence: true,
-    numericality: true
+  validates :user,
+    presence: true
 end

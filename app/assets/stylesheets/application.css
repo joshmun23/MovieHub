@@ -26,7 +26,10 @@
     text-align: center;
   }
 
-
+.test {
+  background-color: red;
+  display: inline-block;
+}
 
  .flash {
   background-color: #49A840; /* green */

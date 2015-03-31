@@ -21,6 +21,22 @@
       </ul>
 
       <section class="top-bar-section">
+        <ul class="left">
+          <li><%= link_to "Add a New Movie", new_movie_path %></li>
+          <li class="has-form">
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <input type="text" placeholder="Find Stuff">
+              </div>
+              <div class="large-4 small-3 columns">
+                <a href="#" class="alert button expand" >Search</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="top-bar-section">
         <ul class="right">
           <%- if current_user -%>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
@@ -28,12 +44,6 @@
             <li><%= link_to 'Sign Up', new_user_registration_path %></li>
             <li><%= link_to 'Sign In', new_user_session_path %></li>
           <%- end -%>
-        </ul>
-      </section>
-
-      <section class="top-bar-section">
-        <ul class="left">
-          <li><%= link_to "Add a New Movie", new_movie_path %></li>
         </ul>
       </section>
     </nav>

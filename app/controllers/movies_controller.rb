@@ -35,8 +35,8 @@ class MoviesController < ApplicationController
 
       redirect_to movie_path(@movie)
     else
-      flash[:alert] = 'Movie Not Revised'
-
+      flash[:alert] = 'Movie Not Revised' # @movie.errors.full_messages
+      # render :edit
       redirect_to edit_movie_path(@movie)
     end
   end

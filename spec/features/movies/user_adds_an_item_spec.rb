@@ -4,14 +4,11 @@
 
 require 'rails_helper'
 
-feature 'user adds an item', %Q{
+feature 'user adds an item', %{
   # As an authenticated user
   # I want to add an item
   # So that others can review it
-
 } do
-
-
   scenario 'add a valid item' do
     user = FactoryGirl.create(:user)
 

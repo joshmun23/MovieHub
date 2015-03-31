@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user view an item', %Q{
+feature 'user view an item', %{
   As an authenticated user
   I want to view a list of items
   So that I can pick items to review

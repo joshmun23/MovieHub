@@ -1,6 +1,12 @@
-<div id="movie-title">
-  <h3><%= @movie.title %></h3>
-  <p><%= @movie.year %></p>
+<h3><%= @movie.title %></h3>
+
+<p><%= @movie.year %></p>
+
+<div data-alert class="alert-box">
+  <%= button_to "Delete this Movie", {:controller => :movies,
+        :action => 'destroy', :id => @movie.id }, :method =>
+        :delete, class: "medium button radius" %>
+  <a href="#" class="close">&times;</a>
 </div>
 
 <% if !@movie.reviews.empty? %>

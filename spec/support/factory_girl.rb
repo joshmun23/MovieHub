@@ -6,11 +6,12 @@ FactoryGirl.define do
     sequence(:email) {|n| "user#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
+    admin false
   end
 
   factory :movie do
-    title 'The Dicktator'
-    year '2012'
+    sequence(:title) { |n| "Ocean's 1#{n}" }
+    sequence(:year) { |n| "202#{n}" }
     user
   end
 

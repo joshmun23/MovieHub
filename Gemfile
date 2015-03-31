@@ -43,6 +43,9 @@ group :development, :test do
   gem 'pry-rails'
 
   gem 'factory_girl_rails'
+
+  gem 'foundation-rails'
+
 end
 
 

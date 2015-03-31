@@ -10,7 +10,7 @@ FactoryGirl.define do
   end
 
   factory :movie do
-    sequence(:title) { |n| "Ocean's 1#{n}"}
+    sequence(:title) { |n| "Ocean's 1#{n}" }
     sequence(:year) { |n| "202#{n}" }
     user
   end

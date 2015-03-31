@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-  feature 'user deletes an item', %{
-
-    As an authenticated user
-    I want to delete an item
-    So that no one can review it
-  } do
+feature 'user deletes an item', %{
+  As an authenticated user
+  I want to delete an item
+  So that no one can review it
+} do
     scenario 'delete existing movie' do
       user = FactoryGirl.create(:user)
 

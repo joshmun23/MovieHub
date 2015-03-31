@@ -8,4 +8,15 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :movie do
+    title 'The Dicktator'
+    year '2012'
+    user
+  end
+
+  factory :review do
+    body 'this is a review hahaha'
+    user
+    movie
+  end
 end

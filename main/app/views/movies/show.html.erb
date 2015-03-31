@@ -1,0 +1,47 @@
+<div id="movie-title">
+  <h3><%= @movie.title %></h3>
+  <p><%= @movie.year %></p>
+</div>
+
+<% if !@movie.reviews.empty? %>
+  <% count = 0 %>
+  <% @movie.reviews.each do |review| %>
+    <fieldset class="review-<%= count %>">
+      <legend><%= review.user.user_name %></legend>
+      <p><%= review.body %></p>
+      <div class="buttons-review edit edit-<%= count %>">
+        <%= link_to "Edit", '#', name: count %>
+      </div>
+      <div class="buttons-review delete delete-<%= count %>">
+        <%= link_to "Delete", movie_review_path(@movie, review), method: :delete %>
+      </div>
+
+      <div class="review-form review-form-<%= count %>">
+        <%= form_for :review do |f|%>
+          <div class="field">
+            <%= f.text_area :body %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+            <div class='answer-button cancel'>
+              <%= link_to 'Cancel', '#', name: count %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </fieldset>
+    <% count =+ 1 %>
+  <% end %>
+<% end %>
+
+<fieldset>
+  <legend>Add your review</legend>
+  <%= form_for [@movie, @review] do |f|%>
+    <div class="field">
+      <%= f.text_area :body %>
+    </div>
+    <div class="button">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</fieldset>

@@ -1,10 +1,11 @@
 class MoviesController < ApplicationController
+  before_action :find_movie, only: [:edit, :update, :show]
+
   def index
-    @movies = Movie.all
+    @movies = Movie.all.limit(10)
   end
 
   def show
-    @movie = Movie.find(params[:id])
   end
 
   def new
@@ -12,24 +13,22 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find(params[:id])
   end
 
   def create
     @movie = Movie.new(movie_params)
-    @movie.user_id = current_user.id
+    @movie.user = current_user
 
     if @movie.save
       flash[:notice] = 'Movie Successfully Created'
-      redirect_to '/movies'
+      redirect_to movies_path
     else
       render :new
     end
   end
 
   def update
-    @movie = Movie.find(params[:id])
-    @movie.user_id = current_user.id
+    @movie.user = current_user
 
     if @movie.update(movie_params)
       flash[:notice] = 'Movie Revised'
@@ -37,22 +36,25 @@ class MoviesController < ApplicationController
       redirect_to movie_path(@movie)
     else
       flash[:alert] = 'Movie Not Revised'
-      render :edit
 
       redirect_to edit_movie_path(@movie)
     end
   end
 
   def destroy
-    # binding.pry
     Movie.find(params[:id]).destroy
 
     redirect_to movies_path
   end
 
-  private
+
+  protected
 
   def movie_params
     params.require(:movie).permit(:title, :year)
+  end
+
+  def find_movie
+    @movie = Movie.find(params[:id])
   end
 end

@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-feature 'user view an item', %{
+feature 'user view a movie', %{
   As an authenticated user
-  I want to view a list of items
-  So that I can pick items to review
+  I want to view a list of movies
+  So that I can pick movies to review
 } do
-  scenario 'see items' do
+  scenario 'see movie' do
     movies = []
     5.times do
       movies << FactoryGirl.create(:movie)
@@ -20,10 +20,7 @@ feature 'user view an item', %{
     expect(page).to have_content(movies[4].title)
   end
 
-  # As an authenticated user
-  # I want to view the details about an item
-  # So that I can get more information about it
-  scenario 'view details of an item' do
+  scenario 'view details of an movie' do
     movie = FactoryGirl.create(:movie)
 
     visit movies_path

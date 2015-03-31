@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-feature 'user updates an item', %{
-  # As an authenticated user I want to update an item's information
+feature 'user updates a movie', %{
+  # As an authenticated user I want to update an movie's information
   # So that I can correct errors or provide new information
 } do
-  scenario 'change item info' do
+  scenario 'change movie info' do
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path

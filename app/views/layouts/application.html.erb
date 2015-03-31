@@ -30,24 +30,14 @@
           <%- end -%>
         </ul>
       </section>
-      <!-- Left Nav Section -->
-      <section class="top-bar-section">
-    <ul class="left">
-      <li><%= link_to "Add a New Movie", new_movie_path %></li>
-    <!--   <li class="has-dropdown">
-      <%= link_to "Revise Movies", movies_path %>
-      <a href='/movies/edit'>Revise Movies</a>
-      <ul class="dropdown">
-        <li><a href='/movies/new'>Zeke Rocks</a></li>
-        <li class="active"><a href="#">Delete a Movie</a></li>
-      </ul> dropdown will instead have user owned movies and will allow drop down to
-            edit those movies
-    </li> -->
-    </ul>
 
-</section>
-</nav>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li><%= link_to "Add a New Movie", new_movie_path %></li>
+        </ul>
+      </section>
     </nav>
+
     <%- flash.each do |key, value| -%>
       <div class="flash flash-<%= key %>">
         <%= value %>

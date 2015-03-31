@@ -1,15 +1,11 @@
-# As an authenticated user
-# I want to add an item
-# So that others can review it
-
 require 'rails_helper'
 
-feature 'user adds an item', %{
+feature 'user adds a movie', %{
   # As an authenticated user
-  # I want to add an item
+  # I want to add an movie
   # So that others can review it
 } do
-  scenario 'add a valid item' do
+  scenario 'add a valid movie' do
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path
@@ -18,9 +14,6 @@ feature 'user adds an item', %{
     fill_in 'Password', with: user.password
 
     click_button 'Log in'
-
-    # binding.pry
-    # movie = FactoryGirl.create(:movie, title: "Godzilla Returns, Again")
 
     visit new_movie_path
 

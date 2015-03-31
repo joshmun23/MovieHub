@@ -21,6 +21,11 @@
     background-size: 100% 100%;
   }
 
+  #movie_h3 {
+    text-shadow: 2px 2px #ff0000;
+    text-align: center;
+  }
+
 
 
  .flash {
@@ -39,7 +44,7 @@
  }
 
  legend {
-   background-color: transparent !important;
+   background-color: transparent;
    color: #fff;
  }
 
@@ -48,7 +53,7 @@
  }
 
  textarea, input {
-   background-color: #000 !important;
+   background-color: #000;
    color: #fff !important;
  }
 

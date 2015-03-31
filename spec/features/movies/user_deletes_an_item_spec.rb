@@ -1,31 +1,29 @@
 require 'rails_helper'
 
-feature 'user deletes an item', %{
+feature 'user deletes a movie', %{
   As an authenticated user
-  I want to delete an item
+  I want to delete an movie
   So that no one can review it
 } do
-    scenario 'delete existing movie' do
-      user = FactoryGirl.create(:user)
+  scenario 'delete existing movie' do
+    user = FactoryGirl.create(:user)
 
-      visit new_user_session_path
+    visit new_user_session_path
 
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
 
-      click_button 'Log in'
+    click_button 'Log in'
 
-      movie = FactoryGirl.create(:movie)
-      new_movie_title = movie.title + "abc"
+    movie = FactoryGirl.create(:movie)
+    movie_title = movie.title
+    movie_year = movie.year
 
-      visit edit_movie_path(movie)
+    visit edit_movie_path(movie)
 
-      fill_in 'Title', with: new_movie_title
-      fill_in 'Year', with: movie.year
+    click_button 'Delete this Movie'
 
-      click_button 'Update Movie'
-
-      expect(page).to have_content(new_movie_title)
-      expect(page).to have_content(movie.year)
-    end
+    expect(page).to_not have_content(movie_title)
+    expect(page).to_not have_content(movie_year)
   end
+end

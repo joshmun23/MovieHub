@@ -1,0 +1,19 @@
+<h3>Edit Movie</h3>
+
+
+<%= form_for @movie  do |f| %>
+
+<p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+
+  </p>
+  <p>
+    <%= f.label :year %><br>
+    <%= f.text_field :year %>
+  </p>
+
+  <p>
+    <%= f.submit "Update Movie", class: "medium button radius"%>
+  </p>
+<% end %>

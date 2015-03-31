@@ -1,0 +1,7 @@
+<h3><%= @movie.title %></h3>
+
+<p><%= @movie.year %></p>
+
+<%= button_to "Delete this Movie", {:controller => :questions,
+      :action => 'destroy', :id => @movie.id }, :method => :delete, class: "medium button radius" %>
+    </ul>

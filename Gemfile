@@ -46,6 +46,8 @@ group :development, :test do
 
   gem 'foundation-rails'
 
+  gem 'coveralls', require: false
+
 end
 
 

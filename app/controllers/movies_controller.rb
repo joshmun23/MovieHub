@@ -4,14 +4,15 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @movie = Movie.find(params[:id])
   end
 
   def new
-    # @user = User.find(params[:id])
     @movie = Movie.new
   end
 
   def edit
+    @movie = Movie.find(params[:id])
   end
 
   def create
@@ -27,9 +28,20 @@ class MoviesController < ApplicationController
   end
 
   def update
+    @movie = Movie.find(params[:id])
+
+    if @movie.update(movie_params)
+      flash[:notice] = 'Movie Revised'
+      redirect_to movie_path
+    else
+      flash[:alert] = 'Movie Not Revised'
+      render :edit
+    end
   end
 
   def destroy
+    Movie.find(params[:id]).destroy
+    redirect_to movie_path
   end
 
 

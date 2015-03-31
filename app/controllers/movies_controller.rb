@@ -29,19 +29,25 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
+    @movie.user_id = current_user.id
 
     if @movie.update(movie_params)
       flash[:notice] = 'Movie Revised'
-      redirect_to movie_path
+
+      redirect_to movie_path(@movie)
     else
       flash[:alert] = 'Movie Not Revised'
       render :edit
+
+      redirect_to edit_movie_path(@movie)
     end
   end
 
   def destroy
+    # binding.pry
     Movie.find(params[:id]).destroy
-    redirect_to movie_path
+
+    redirect_to movies_path
   end
 
 

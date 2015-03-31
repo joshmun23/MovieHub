@@ -17,3 +17,9 @@
     <%= f.submit "Update Movie", class: "medium button radius"%>
   </p>
 <% end %>
+
+<div data-alert class="alert-box">
+  <%= button_to "Delete this Movie", {:controller => :movies,
+        :action => 'destroy', :id => @movie.id }, :method => :delete, confirm: "Are you sure?", class: "medium button radius"%>
+  <!-- <a href="#" class="close">&times;</a> -->
+</div>

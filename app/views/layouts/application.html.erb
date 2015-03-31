@@ -32,16 +32,17 @@
       </section>
       <!-- Left Nav Section -->
       <section class="top-bar-section">
-    <!-- Right Nav Section -->
     <ul class="left">
-      <li><a href=/movies/new>Add a New Movie</a></li>
-      <li class="has-dropdown">
-        <a href=/movies/edit>Revise Movies</a>
-        <ul class="dropdown">
-          <li><a href=/movies/new>Add a New Movie</a></li>
-          <li class="active"><a href="#">Delete a Movie</a></li>
-        </ul>
-      </li>
+      <li><%= link_to "Add a New Movie", new_movie_path %></li>
+    <!--   <li class="has-dropdown">
+      <%= link_to "Revise Movies", movies_path %>
+      <a href='/movies/edit'>Revise Movies</a>
+      <ul class="dropdown">
+        <li><a href='/movies/new'>Zeke Rocks</a></li>
+        <li class="active"><a href="#">Delete a Movie</a></li>
+      </ul> dropdown will instead have user owned movies and will allow drop down to
+            edit those movies
+    </li> -->
     </ul>
 
 </section>

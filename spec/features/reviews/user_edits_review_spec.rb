@@ -7,7 +7,7 @@ feature 'user edits review', %{
 } do
   scenario 'edit a review' do
     movie = FactoryGirl.create(:movie)
-    review = FactoryGirl.create(:review, movie: movie)
+    FactoryGirl.create(:review, movie: movie)
 
     visit movie_path(movie)
 
@@ -16,14 +16,13 @@ feature 'user edits review', %{
     first('.review-form').fill_in 'review_body', with: 'This movie my new review'
     first('.actions').click_button 'Update Review'
 
-
     expect(page).to have_content(movie.title)
     expect(page).to have_content('This movie my new review')
   end
 
   scenario 'edit a review with empty body' do
     movie = FactoryGirl.create(:movie)
-    review = FactoryGirl.create(:review, movie: movie)
+    FactoryGirl.create(:review, movie: movie)
 
     visit movie_path(movie)
 

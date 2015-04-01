@@ -20,3 +20,9 @@ $(function(){ $(document).foundation(); });
 $(function() {
   $('.flash').delay(1500).fadeOut(600);
 });
+$(document).ready(function() {
+	$('.search-trigger').click(function(e){
+		e.preventDefault();
+		$('.search').toggleClass('triggered');
+	});
+});

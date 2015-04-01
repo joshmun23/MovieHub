@@ -20,3 +20,25 @@ $(function(){ $(document).foundation(); });
 $(function() {
   $('.flash').delay(1500).fadeOut(600);
 });
+
+$(function() {
+  $('.edit a').on('click', function(e){
+    e.preventDefault();
+    var number = $(this).attr('name');
+    $('.edit-' + number).hide();
+    $('.delete-' + number).hide();
+    $('.review-body-' + number).hide();
+    $('.review-form-' + number).fadeIn();
+  });
+});
+
+$(function() {
+  $('.cancel a').on('click', function(e){
+    e.preventDefault();
+    var number = $(this).attr('name');
+    $('.review-form-' + number).hide();
+    $('.delete-' + number).fadeIn();
+    $('.edit-' + number).fadeIn();
+    $('.review-body-' + number).fadeIn();
+  });
+});

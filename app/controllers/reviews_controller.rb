@@ -10,8 +10,6 @@ class ReviewsController < ApplicationController
       redirect_to movie_path(@movie)
     else
       @review.errors.full_messages.each { |message| flash[:errors] = message }
-      # find the way to use this thing instead of the render
-      # redirect movie_path(@movie) find parameters on the routes
       render 'movies/show'
     end
   end
@@ -19,15 +17,12 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     @movie = Movie.find(params[:movie_id])
-    @review.user = current_user
 
     if @review.update(review_params)
       flash[:notice] = 'Review edited'
       redirect_to movie_path(@movie)
     else
       @review.errors.full_messages.each { |message| flash[:errors] = message }
-      # find the way to use this thing instead of the render
-      # redirect movie_path(@movie) find parameters on the routes
       render 'movies/show'
     end
   end

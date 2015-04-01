@@ -5,9 +5,15 @@ feature 'user deletes a review', %{
   I want to delete a review
   So that others can't see it
 } do
+  let(:user) { FactoryGirl.create(:user) }
+
+  before :each do
+    sign_in_as user
+  end
+
   scenario 'deletes a review' do
     movie = FactoryGirl.create(:movie)
-    review = FactoryGirl.create(:review, movie: movie)
+    review = FactoryGirl.create(:review, movie: movie, user: user)
 
     visit movie_path(movie)
 

@@ -5,9 +5,15 @@ feature 'user edits review', %{
   I want to be able to edit a review
   So I can correct errors
 } do
+  let(:user) { FactoryGirl.create(:user) }
+
+  before :each do
+    sign_in_as user
+  end
+
   scenario 'edit a review' do
     movie = FactoryGirl.create(:movie)
-    FactoryGirl.create(:review, movie: movie)
+    FactoryGirl.create(:review, movie: movie, user: user)
 
     visit movie_path(movie)
 
@@ -22,7 +28,7 @@ feature 'user edits review', %{
 
   scenario 'edit a review with empty body' do
     movie = FactoryGirl.create(:movie)
-    FactoryGirl.create(:review, movie: movie)
+    FactoryGirl.create(:review, movie: movie, user: user)
 
     visit movie_path(movie)
 

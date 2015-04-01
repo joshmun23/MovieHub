@@ -5,17 +5,14 @@ feature 'user add review', %{
   I want to add a review
   So that others can see it
 } do
+  let(:user) { FactoryGirl.create(:user) }
+
+  before :each do
+    sign_in_as user
+  end
+
   scenario 'add a review to a movie' do
     movie = FactoryGirl.create(:movie)
-    user = FactoryGirl.create(:user)
-
-    visit new_user_session_path
-
-    fill_in 'User name', with: user.user_name
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
 
     visit movie_path(movie)
 

@@ -10,9 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+ *= require_tree .
 
  */
 
@@ -50,11 +50,6 @@
 
  label {
    color: #fff;
- }
-
- textarea, input {
-   background-color: #000;
-   color: #fff !important;
  }
 
  ul {

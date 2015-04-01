@@ -19,11 +19,11 @@
         <%= link_to "Edit", '#', name: count %>
       </div>
       <div class="buttons-review delete delete-<%= count %>">
-        <%= link_to "Delete", movie_review_path(@movie, review), method: :delete %>
+        <%= link_to "Delete", movie_review_path(@movie, review), class: "delete-#{count}", method: :delete %>
       </div>
 
       <div class="review-form review-form-<%= count %>">
-        <%= form_for :review do |f|%>
+        <%= form_for [@movie, review] do |f|%>
           <div class="field">
             <%= f.text_area :body %>
           </div>

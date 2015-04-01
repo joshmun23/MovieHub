@@ -9,29 +9,34 @@ class ReviewsController < ApplicationController
       flash[:notice] = 'Review Successfully Created'
       redirect_to movie_path(@movie)
     else
-      binding.pry
+      @review.errors.full_messages.each { |message| flash[:errors] = message }
+      # find the way to use this thing instead of the render
+      # redirect movie_path(@movie) find parameters on the routes
       render 'movies/show'
     end
   end
 
   def update
-    @review = review.find(params[:id])
-    @review.user_id = current_user.id
+    @review = Review.find(params[:id])
+    @movie = Movie.find(params[:movie_id])
+    @review.user = current_user
 
     if @review.update(review_params)
-      flash[:notice] = 'review Revised'
-
-      redirect_to review_path(@review)
+      flash[:notice] = 'Review edited'
+      redirect_to movie_path(@movie)
     else
-      flash[:alert] = 'review Not Revised'
-      render :edit
-
-      redirect_to edit_review_path(@review)
+      @review.errors.full_messages.each { |message| flash[:errors] = message }
+      # find the way to use this thing instead of the render
+      # redirect movie_path(@movie) find parameters on the routes
+      render 'movies/show'
     end
   end
 
   def destroy
-    review.delete(params[:id])
+    Review.delete(params[:id])
+    flash[:notice] = 'Review deleted'
+    @movie = Movie.find(params[:movie_id])
+
     redirect_to movie_path(@movie)
   end
 

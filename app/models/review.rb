@@ -5,6 +5,9 @@ class Review < ActiveRecord::Base
   validates :user,
     presence: true
 
+  validates :body,
+    presence: true
+
   validates :movie,
     presence: true
 end

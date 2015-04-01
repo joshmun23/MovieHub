@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-feature 'user sees all reviews for a movie', %Q{
+feature 'user sees all reviews for a movie', %{
   As a authenticated user
-  I want to see the revies of a movie if there is any
+  I want to see the reviews of a movie if there is any
   So I can read the reviews
 } do
-  scenario 'user visit movie detail page' do
+  scenario 'user visits movie details page' do
     movie = FactoryGirl.create(:movie)
-    review = FactoryGirl.create(:review)
+    review = FactoryGirl.create(:review, movie: movie)
 
     visit movie_path(movie)
 

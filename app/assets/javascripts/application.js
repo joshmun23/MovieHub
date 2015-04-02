@@ -31,21 +31,59 @@ $(document).ready(function() {
 $(function() {
   $('.edit a').on('click', function(e){
     e.preventDefault();
+    debugger
     var number = $(this).attr('name');
     $('.edit-' + number).hide();
     $('.delete-' + number).hide();
     $('.review-body-' + number).hide();
     $('.review-form-' + number).fadeIn();
+    $('.cancel-' + number).fadeIn();
   });
 });
 
 $(function() {
   $('.cancel a').on('click', function(e){
     e.preventDefault();
+    debugger
     var number = $(this).attr('name');
+    $('.cancel-' + number).hide();
     $('.review-form-' + number).hide();
     $('.delete-' + number).fadeIn();
     $('.edit-' + number).fadeIn();
     $('.review-body-' + number).fadeIn();
+  });
+});
+
+$(function() {
+  $('.vote-up a').on('click', function(e){
+    e.preventDefault();
+    var number = $(this).attr('num');
+    var movie_id = $(this).attr('movie_id');
+    var review_id = $(this).attr('review_id');
+    var body = $('.review-body-' + number).text();
+    var votes = $('.votes-' + number).text();
+    var plusVotes = parseInt(votes) + 1;
+    $.ajax({
+      url: '/movies/' + movie_id + '/reviews/' + review_id + '?review[body]=' + body + '&&review[votes]=' + plusVotes,
+      type: 'PUT'
+    });
+    $('.votes-' + number).text(plusVotes);
+  });
+});
+
+$(function() {
+  $('.vote-down a').on('click', function(e){
+    e.preventDefault();
+    var number = $(this).attr('num');
+    var movie_id = $(this).attr('movie_id');
+    var review_id = $(this).attr('review_id');
+    var body = $('.review-body-' + number).text();
+    var votes = $('.votes-' + number).text();
+    var plusVotes = parseInt(votes) - 1;
+    $.ajax({
+      url: '/movies/' + movie_id + '/reviews/' + review_id + '?review[body]=' + body + '&&review[votes]=' + plusVotes,
+      type: 'PUT'
+    });
+    $('.votes-' + number).text(plusVotes);
   });
 });

@@ -17,7 +17,6 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     @movie = Movie.find(params[:movie_id])
-
     if @review.update(review_params)
       flash[:notice] = 'Review edited'
       redirect_to movie_path(@movie)
@@ -38,6 +37,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:body)
+    params.require(:review).permit(:body, :votes)
   end
 end

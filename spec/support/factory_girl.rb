@@ -14,4 +14,10 @@ FactoryGirl.define do
     sequence(:year) { |n| "202#{n}" }
     user
   end
+
+  factory :review do
+    body 'this is a review hahaha'
+    user
+    movie
+  end
 end

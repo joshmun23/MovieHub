@@ -23,9 +23,13 @@
   <section class="top-bar-section">
       <ul class="right">
 
+          <%- if current_user -%>
+          <li><%= link_to "Add a New Movie", new_movie_path %></li>
+          <%- end %>
+
+          <li class="active"><a href="#">Home</a></li>
 
           <%- if current_user -%>
-          <li class="active"><a href="#">Home</a></li>
             <li class="has-dropdown">
               <a href="#">User Name</a>
               <ul class="dropdown">
@@ -42,7 +46,6 @@
 
 
     <ul class="left">
-        <li><%= link_to "Add a New Movie", new_movie_path %></li>
         <li class="has-form">
         <div class="row collapse">
           <div class="large-8 small-9 columns">

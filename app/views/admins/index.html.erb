@@ -1,0 +1,11 @@
+<ul>
+<% @users.each do |user| %>
+  <li>
+  User Name: <%= user.user_name %><div class="buttons-review delete delete-<%= count %>">
+    <span><%= link_to "Delete", movie_review_path(@movie, review), class: "delete-#{count}", method: :delete %></span>
+    </div>
+
+    <span>User Email: <%= user.email %></span>
+  </li>
+<% end %>
+</ul>

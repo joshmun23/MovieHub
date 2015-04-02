@@ -10,3 +10,11 @@
   </div>
   <% end %>
 </div>
+
+<ul>
+  <% if current_user %>
+    <% if current_user.admin? %>
+      <h4>You are an Admin: <%= link_to "Got to Admin Functions", users_path %></h4>
+    <% end %>
+  <% end %>
+</ul>

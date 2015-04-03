@@ -18,7 +18,6 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @movie = Movie.find(params[:movie_id])
     if @review.update(review_params)
-      flash[:notice] = 'Review edited'
       redirect_to movie_path(@movie)
     else
       @review.errors.full_messages.each { |message| flash[:errors] = message }

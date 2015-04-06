@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update_attributes(admin: true)
-  
+
     if @user.save
       flash[:notice] = 'Admin Successfully Created'
 

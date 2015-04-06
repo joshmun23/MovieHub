@@ -25,6 +25,6 @@ class UsersController < ApplicationController
   end
 
   def admin?
-   role == "admin"
+    role == "admin"
   end
 end

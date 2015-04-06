@@ -20,7 +20,8 @@ class ReviewsController < ApplicationController
 
     if params[:votes]
       @review.votes = params[:votes]
-      @vote = UserVote.new(review: @review, user: current_user, vote_type: params[:vote_type])
+      @vote = UserVote.new(review: @review, user: current_user,
+                           vote_type: params[:vote_type])
       current_vote = UserVote.find_by(review: @review, user: current_user)
       if current_vote && current_vote.vote_type != @vote.vote_type
         UserVote.delete(current_vote)
@@ -32,7 +33,7 @@ class ReviewsController < ApplicationController
           render 'movies/show'
         else
           respond_to do |format|
-            format.js {render 'movies/show', status: 403 }
+            format.js { render 'movies/show', status: 403 }
           end
         end
       end

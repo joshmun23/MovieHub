@@ -56,15 +56,15 @@ $('.vote-up a').on('click', function(){
   var plusVotes = parseInt(votes) + 1;
 
   var votesRequest = $.ajax({
-    method: "PUT",
+    method: 'PUT',
     url: '/movies/' + movieId + '/reviews/' + reviewId,
-    data: review = { body: body, votes: plusVotes, vote_type: voteType }
+    data: { body: body, votes: plusVotes, vote_type: voteType }
   });
-  votesRequest.done(function(msg) {
+  votesRequest.done(function() {
     $('.votes-' + number).text(plusVotes);
   });
-  votesRequest.fail(function(msg) {
-    alert('You\'ve already voted')
+  votesRequest.fail(function() {
+    alert('You\'ve already voted');
   });
 });
 
@@ -78,15 +78,15 @@ $('.vote-down a').on('click', function(){
   var plusVotes = parseInt(votes) - 1;
 
   var votesRequest = $.ajax({
-    method: "PUT",
+    method: 'PUT',
     url: '/movies/' + movieId + '/reviews/' + reviewId,
-    data: review = { body: body, votes: plusVotes, vote_type: voteType }
+    data: { body: body, votes: plusVotes, vote_type: voteType }
   });
-  votesRequest.done(function(msg) {
+  votesRequest.done(function() {
     $('.votes-' + number).text(plusVotes);
   });
-  votesRequest.fail(function(msg) {
-    alert('You\'ve already voted')
+  votesRequest.fail(function() {
+    alert('You\'ve already voted');
   });
 });
 

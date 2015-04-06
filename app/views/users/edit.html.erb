@@ -1,0 +1,8 @@
+<h3> Add a Profile Photo </h3>
+
+<%= form_for @user do |f| %>
+
+  <%= f.file_field :profile_photo %>
+  <%= f.submit "Save Profile", class: "medium button radius"%>
+
+<% end %>

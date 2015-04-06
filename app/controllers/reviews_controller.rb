@@ -17,11 +17,32 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     @movie = Movie.find(params[:movie_id])
-    if @review.update(review_params)
-      redirect_to movie_path(@movie)
+
+    if params[:votes]
+      @review.votes = params[:votes]
+      @vote = UserVote.new(review: @review, user: current_user, vote_type: params[:vote_type])
+      current_vote = UserVote.find_by(review: @review, user: current_user)
+      if current_vote && current_vote.vote_type != @vote.vote_type
+        UserVote.delete(current_vote)
+        @review.save
+        render 'movies/show'
+      else
+        if @vote.save
+          @review.save
+          render 'movies/show'
+        else
+          respond_to do |format|
+            format.js {render 'movies/show', status: 403 }
+          end
+        end
+      end
     else
-      @review.errors.full_messages.each { |message| flash[:errors] = message }
-      render 'movies/show'
+      if @review.update(review_params)
+        redirect_to movie_path(@movie)
+      else
+        @review.errors.full_messages.each { |message| flash[:errors] = message }
+        render 'movies/show'
+      end
     end
   end
 
@@ -36,6 +57,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:body, :votes)
+    params.require(:review).permit(:body)
   end
 end

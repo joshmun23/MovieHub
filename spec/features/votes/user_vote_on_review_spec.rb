@@ -21,7 +21,7 @@ feature 'user add votes', %{
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content(review.body)
-    expect('.review-0').to have_content('1')
+    expect(page).to have_content('1')
   end
 
   scenario 'vote a review down' do
@@ -34,6 +34,6 @@ feature 'user add votes', %{
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content(review.body)
-    expect('.votes').to have_content('-1')
+    expect(page).to have_content('0')
   end
 end

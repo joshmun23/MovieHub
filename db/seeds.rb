@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+50.times do |i|
+  Movie.create!(title: "Movie #{i}", year: (1960+i).to_s, user_id: 1)
+end

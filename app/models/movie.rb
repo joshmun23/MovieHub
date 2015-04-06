@@ -6,4 +6,6 @@ class Movie < ActiveRecord::Base
   validates :year, presence: true
   validates :user,
     presence: true
+
+  paginates_per 25
 end

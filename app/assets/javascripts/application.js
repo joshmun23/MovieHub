@@ -15,7 +15,7 @@
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+
 
 $(function() {
   $('.flash').delay(1500).fadeOut(600);
@@ -64,7 +64,7 @@ $('.vote-up a').on('click', function(){
     $('.votes-' + number).text(plusVotes);
   });
   votesRequest.fail(function(msg) {
-    alert('You\'ve already vote')
+    alert('You\'ve already voted')
   });
 });
 
@@ -86,7 +86,7 @@ $('.vote-down a').on('click', function(){
     $('.votes-' + number).text(plusVotes);
   });
   votesRequest.fail(function(msg) {
-    alert('You\'ve already vote')
+    alert('You\'ve already voted')
   });
 });
 

@@ -23,18 +23,14 @@
     <fieldset class="review-<%= count %>">
       <legend><%= review.user.user_name %></legend>
 
-        <div class="small-1 column">
-        <% if signed_in? %>
+        <div class="small-1 column">      
           <div class="vote-up">
             <%= link_to image_tag("up-vote.png"), "#", num: count, movie_id: @movie.id, review_id: review.id %>
           </div>
-        <% end %>
           <p class="icons votes votes-<%= count %>"><%= review.votes %></p>
-        <% if signed_in? %>
           <div class="vote-down">
             <%= link_to image_tag("down-vote.png"), "#", num: count, movie_id: @movie.id, review_id: review.id %>
           </div>
-        <% end %>
         </div>
 
       <p class="small-10 columns review-body-<%= count %>"><%= review.body %></p>

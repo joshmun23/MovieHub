@@ -12,8 +12,8 @@ feature 'user votes on a review', %{
   end
 
   scenario 'upvote', js: true do
-    movie = FactoryGirl.create(:movie)
-    FactoryGirl.create(:review, movie: movie, user: user)
+    review = FactoryGirl.create(:review, user: user)
+    movie = review.movie
 
     visit movie_path(movie)
     find('.vote-up').click_link 'Up vote'
@@ -24,8 +24,8 @@ feature 'user votes on a review', %{
   end
 
   scenario 'downvote', js: true do
-    movie = FactoryGirl.create(:movie)
-    FactoryGirl.create(:review, movie: movie, user: user)
+    review = FactoryGirl.create(:review, user: user)
+    movie = review.movie
 
     visit movie_path(movie)
     find('.vote-down').click_link 'Down vote'
@@ -35,9 +35,9 @@ feature 'user votes on a review', %{
     end
   end
 
-  scenario 'upvote', js: true do
-    movie = FactoryGirl.create(:movie)
-    FactoryGirl.create(:review, movie: movie, user: user)
+  scenario 'upvote twice', js: true do
+    review = FactoryGirl.create(:review, user: user)
+    movie = review.movie
 
     visit movie_path(movie)
     find('.vote-up').click_link 'Up vote'

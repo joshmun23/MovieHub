@@ -19,24 +19,9 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
 
     if params[:votes]
-      @review.votes = params[:votes]
-      @vote = UserVote.new(review: @review, user: current_user,
-                           vote_type: params[:vote_type])
-      current_vote = UserVote.find_by(review: @review, user: current_user)
-      if current_vote && current_vote.vote_type != @vote.vote_type
-        UserVote.delete(current_vote)
-        @review.save
-        render 'movies/show'
-      else
-        if @vote.save
-          @review.save
-          render 'movies/show'
-        else
-          respond_to do |format|
-            format.js { render 'movies/show', status: 403 }
-          end
-        end
-      end
+      votes
+      @review.save
+      render 'movies/show' unless @js_error_display
     else
       if @review.update(review_params)
         redirect_to movie_path(@movie)
@@ -53,6 +38,23 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
 
     redirect_to movie_path(@movie)
+  end
+
+  def votes
+    @review.votes = params[:votes]
+    @vote = UserVote.new(review: @review, user: current_user,
+                         vote_type: params[:vote_type])
+    current_vote = UserVote.find_by(review: @review, user: current_user)
+    if current_vote && current_vote.vote_type != @vote.vote_type
+      UserVote.delete(current_vote)
+    else
+      unless @vote.save
+        respond_to do |format|
+          @js_error_display = true
+          format.js { render 'movies/show', status: 403 }
+        end
+      end
+    end
   end
 
   private

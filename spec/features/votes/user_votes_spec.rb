@@ -11,15 +11,16 @@ feature 'user votes on a review', %{
     sign_in_as user
   end
 
-  scenario 'deletes a review', js: true, focus: true do
+  scenario 'deletes a review', js: true do
     movie = FactoryGirl.create(:movie)
     review = FactoryGirl.create(:review, movie: movie, user: user)
 
     visit movie_path(movie)
-    first('vote-up').click_link 'Up vote'
+    #save_screenshot("capybara-js.png")
+    find('.vote-up').click_link 'Up vote'
 
-    expect(page).to have_content('1')
-    expect(page).to have_content(movie.title)
-    expect(page).to_not have_content(review.body)
+    within 'p.votes' do
+      expect(page).to have_content('1')
+    end
   end
 end

@@ -22,6 +22,8 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'email_validator', '~> 1.5.0'
   gem 'shoulda-matchers', require: false
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 gem 'devise'

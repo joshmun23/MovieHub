@@ -13,10 +13,9 @@ feature 'user votes on a review', %{
 
   scenario 'upvote', js: true do
     movie = FactoryGirl.create(:movie)
-    review = FactoryGirl.create(:review, movie: movie, user: user)
+    FactoryGirl.create(:review, movie: movie, user: user)
 
     visit movie_path(movie)
-    #save_screenshot("capybara-js.png")
     find('.vote-up').click_link 'Up vote'
 
     within 'p.votes' do
@@ -26,10 +25,9 @@ feature 'user votes on a review', %{
 
   scenario 'downvote', js: true do
     movie = FactoryGirl.create(:movie)
-    review = FactoryGirl.create(:review, movie: movie, user: user)
+    FactoryGirl.create(:review, movie: movie, user: user)
 
     visit movie_path(movie)
-    #save_screenshot("capybara-js.png")
     find('.vote-down').click_link 'Down vote'
 
     within 'p.votes' do
@@ -39,10 +37,9 @@ feature 'user votes on a review', %{
 
   scenario 'upvote', js: true do
     movie = FactoryGirl.create(:movie)
-    review = FactoryGirl.create(:review, movie: movie, user: user)
+    FactoryGirl.create(:review, movie: movie, user: user)
 
     visit movie_path(movie)
-    #save_screenshot("capybara-js.png")
     find('.vote-up').click_link 'Up vote'
     find('.vote-up').click_link 'Up vote'
 

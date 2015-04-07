@@ -11,7 +11,7 @@ feature 'user votes on a review', %{
     sign_in_as user
   end
 
-  scenario 'deletes a review', js: true do
+  scenario 'upvote', js: true do
     movie = FactoryGirl.create(:movie)
     review = FactoryGirl.create(:review, movie: movie, user: user)
 

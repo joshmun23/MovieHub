@@ -49,9 +49,6 @@ $('.vote-up a').on('click', function(){
   votesRequest.done(function() {
     $('.votes-' + number).text(plusVotes);
   });
-  votesRequest.fail(function() {
-    alert('You\'ve already voted');
-  });
 });
 
 $('.vote-down a').on('click', function(){
@@ -70,8 +67,5 @@ $('.vote-down a').on('click', function(){
   });
   votesRequest.done(function() {
     $('.votes-' + number).text(plusVotes);
-  });
-  votesRequest.fail(function() {
-    alert('You\'ve already voted');
   });
 });

@@ -54,7 +54,7 @@ gem 'valid_attribute', group: [:development, :test]
 gem 'email_validator', '~> 1.5.0', group: [:development, :test]
 gem "carrierwave", group: [:development, :test]
 gem 'simple_form', group: [:development, :test]
-gem 'fog-aws', group: [:development, :test]
+gem 'fog', group: [:development, :test]
 gem "dotenv-rails", group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'

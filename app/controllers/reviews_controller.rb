@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
+      ReviewNotifier.new_review(@review).deliver_later
       flash[:notice] = 'Review Successfully Created'
       redirect_to movie_path(@movie)
     else

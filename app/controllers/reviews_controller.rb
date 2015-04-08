@@ -17,20 +17,17 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     @movie = Movie.find(params[:movie_id])
-
     if params[:votes]
       votes
       if !@no_more_votes
         @review.save
         render json: @review
       end
+    elsif @review.update(review_params)
+      redirect_to movie_path(@movie)
     else
-      if @review.update(review_params)
-        redirect_to movie_path(@movie)
-      else
-        @review.errors.full_messages.each { |message| flash[:errors] = message }
-        render 'movies/show'
-      end
+      @review.errors.full_messages.each { |message| flash[:errors] = message }
+      render 'movies/show'
     end
   end
 
@@ -58,7 +55,6 @@ class ReviewsController < ApplicationController
   end
 
   private
-
   def review_params
     params.require(:review).permit(:body)
   end

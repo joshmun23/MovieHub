@@ -20,8 +20,10 @@ class ReviewsController < ApplicationController
 
     if params[:votes]
       votes
-      @review.save
-      render 'movies/show' unless @js_error_display
+      if !@no_more_votes
+        @review.save
+        render json: @review
+      end
     else
       if @review.update(review_params)
         redirect_to movie_path(@movie)
@@ -47,12 +49,10 @@ class ReviewsController < ApplicationController
     current_vote = UserVote.find_by(review: @review, user: current_user)
     if current_vote && current_vote.vote_type != @vote.vote_type
       UserVote.delete(current_vote)
-    else
-      unless @vote.save
-        respond_to do |format|
-          @js_error_display = true
-          format.js { render 'movies/show', status: 403 }
-        end
+    elsif !@vote.save
+      respond_to do |format|
+        @no_more_votes = true
+        format.js { render json: @vote, status: 403 }
       end
     end
   end

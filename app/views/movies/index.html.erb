@@ -1,12 +1,14 @@
 <div class="movie_h3">
   <h3>MovieHub</h3>
 </div>
-<div class="movies">
-  <% @movies.each do | movie | %>
-  <div class="panel">
-    <span><%= link_to movie.title, movie_path(movie) %></span>
-    <%= movie.year %>
-    <span><%= link_to "Edit Movie", edit_movie_path(movie) %></span>
+
+<% if !@movies.empty?%>
+  <div class="movies">
+    <% @movies.each do | movie | %>
+    <div class="panel">
+      <span><%= link_to movie.title, movie_path(movie) %></span>
+      <%= movie.year %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
+<% end %>

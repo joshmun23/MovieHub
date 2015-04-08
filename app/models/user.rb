@@ -9,4 +9,14 @@ class User < ActiveRecord::Base
   validates :encrypted_password, presence: true
   validates :sign_in_count, presence: true
   validates :user_name, presence: true
+
+  def update_admin_status
+    update_attributes(admin: true)
+
+    save
+  end
+
+  def admin?
+    self.admin
+  end
 end

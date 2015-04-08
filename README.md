@@ -1,7 +1,10 @@
-#MovieHub by Ezequiel Lopz, Josh Munn, Jack Sy and Duncan Rose
-#=============================================================
-###Setting up Poltergeist
-###----------------------
+http://www.MovieHub.click
+-------------------------
+by Ezequiel Lopez, Josh Munn, Jack Sy and Duncan Rose
+
+
+Setting up Poltergeist
+
 install phantomjs
 ```
 brew install phantomjs

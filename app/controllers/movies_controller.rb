@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  Tmdb::Api.key(ENV["TMDB_API_KEY"])
+
   before_action :find_movie, only: [:edit, :update, :show]
 
   def index
@@ -11,6 +13,12 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    # @search = Tmdb::Collection.find('batman')
+    @genre = Omdb::Api.new.search('batman')
+    # @search.collection.find('movie') # determines type of resource
+    # @search.query('batman') # the query to search against
+    # @search.fetch # makes request
+    binding.pry
   end
 
   def edit
@@ -36,7 +44,7 @@ class MoviesController < ApplicationController
 
       redirect_to movie_path(@movie)
     else
-      flash[:alert] = @movie.errors.full_messages # 'Movie Not Revised' 
+      flash[:alert] = @movie.errors.full_messages # 'Movie Not Revised'
       render :edit
       # redirect_to edit_movie_path(@movie)
     end

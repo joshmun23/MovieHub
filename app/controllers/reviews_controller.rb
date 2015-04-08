@@ -17,9 +17,13 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     @movie = Movie.find(params[:movie_id])
-
-    if @review.update(review_params)
-      flash[:notice] = 'Review edited'
+    if params[:votes]
+      votes
+      if !@no_more_votes
+        @review.save
+        render json: @review
+      end
+    elsif @review.update(review_params)
       redirect_to movie_path(@movie)
     else
       @review.errors.full_messages.each { |message| flash[:errors] = message }
@@ -33,6 +37,21 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
 
     redirect_to movie_path(@movie)
+  end
+
+  def votes
+    @review.votes = params[:votes]
+    @vote = UserVote.new(review: @review, user: current_user,
+                         vote_type: params[:vote_type])
+    current_vote = UserVote.find_by(review: @review, user: current_user)
+    if current_vote && current_vote.vote_type != @vote.vote_type
+      UserVote.delete(current_vote)
+    elsif !@vote.save
+      respond_to do |format|
+        @no_more_votes = true
+        format.js { render json: @vote, status: 403 }
+      end
+    end
   end
 
   private

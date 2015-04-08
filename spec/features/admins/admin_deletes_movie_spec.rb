@@ -8,8 +8,8 @@ feature 'admin view users', %{
 
   scenario 'delete individual movies' do
     movie = FactoryGirl.create(:movie)
-    user = create_admin(:user)
-    sign_in_as user
+    admin = FactoryGirl.create(:user, admin: true)
+    sign_in_as admin
 
     visit movie_path(movie)
 

@@ -6,8 +6,8 @@ feature 'Create new Administrator', %{
   # So that I can sleep
 } do
   scenario 'give user admin powers' do
-    user = create_admin(:user)
-    sign_in_as user
+    admin = FactoryGirl.create(:user, admin: true)
+    sign_in_as admin
 
     visit users_path
 

@@ -7,13 +7,13 @@ feature 'admin view users', %{
 } do
 
   scenario 'delete individual user' do
-    user = create_admin(:user)
-    sign_in_as user
+    admin = FactoryGirl.create(:user, admin: true)
+    sign_in_as admin
 
     visit users_path
 
     click_button 'Delete User'
 
-    expect(page).to_not have_content(user.email)
+    expect(page).to_not have_content(admin.email)
   end
 end

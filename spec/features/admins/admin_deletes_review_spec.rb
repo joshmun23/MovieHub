@@ -17,8 +17,8 @@ feature 'admin deletes reviews', %{
     # binding.pry
     click_link 'Sign Out'
 
-    user = create_admin(:user)
-    sign_in_as user
+    admin = FactoryGirl.create(:user, admin: true)
+    sign_in_as admin
 
     visit movie_path(movie)
 

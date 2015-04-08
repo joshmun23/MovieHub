@@ -7,11 +7,11 @@ feature 'admin view users', %{
 } do
 
   scenario 'view list of users' do
-    user = create_admin(:user)
-    sign_in_as user
+    admin = FactoryGirl.create(:user, admin: true)
+    sign_in_as admin
 
     visit users_path
 
-    expect(page).to have_content(user.email)
+    expect(page).to have_content(admin.email)
   end
 end

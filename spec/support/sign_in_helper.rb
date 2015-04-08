@@ -9,8 +9,4 @@ module AuthenticationHelper
 
     click_button 'Log in'
   end
-
-  def create_admin(user)
-    FactoryGirl.create(user, admin: true)
-  end
 end

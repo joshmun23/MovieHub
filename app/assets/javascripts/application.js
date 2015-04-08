@@ -1,7 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require autocomplete-rails
 //= require_tree .
 
 $(function() { $(document).foundation(); });
@@ -72,3 +71,34 @@ $('.vote-down a').on('click', function(){
     $('.votes-' + number).text(plusVotes);
   });
 });
+
+// AUTOCOMPLETE MOVIE TITLE
+$('#movie_title').keyup(function() {
+  var movieTitle = $(this).val();
+  $('#titles-list-container').show();
+  var titlesRequest = $.ajax({
+    method: 'GET',
+    url: '/autocomplete',
+    data: { q: movieTitle }
+  });
+  titlesRequest.done(function(movieTitles) {
+    var data = JSON.parse(movieTitles);
+    $('#titles-list').replaceWith('<ul id="titles-list"></ul>');
+    for (i = 0; i < data.length; i++) {
+      $('#titles-list').append('<li><a class="title" href="#">' + data[i] + '</a><li>');
+    }
+    $('.title').on('click', function(e) {
+      e.preventDefault();
+      $('#titles-list-container').hide();
+      var selectedTitle = $(this).text();
+      $('#titles-list').replaceWith('<ul id="titles-list"></ul>');
+      $('#movie_title').val(selectedTitle);
+    });
+  });
+})
+
+$('#movie-submit').on('focusin',function() {
+  $('#titles-list-container').hide();
+  $('#titles-list').replaceWith('<ul id="titles-list"></ul>');
+});
+

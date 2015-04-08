@@ -5,11 +5,10 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>
+  <div id="titles-list-container">
+    <ul id="titles-list"></ul>
+  </div>
   <p>
-    <%= f.label :year %><br>
-    <%= f.text_field :year %>
-  </p>
-  <p>
-    <%= f.submit "Create a New Movie", class: "medium button radius"%>
+    <%= f.submit "Create a New Movie", class: "medium button radius", id: "movie-submit" %>
   </p>
 <% end %>

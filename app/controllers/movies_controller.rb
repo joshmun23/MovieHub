@@ -18,6 +18,8 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
+    omdb_movie = Omdb::Api.new.fetch(movie_params[:title])
+    binding.pry
     @movie.user = current_user
 
     if @movie.save
@@ -51,7 +53,7 @@ class MoviesController < ApplicationController
   protected
 
   def movie_params
-    params.require(:movie).permit(:title, :year)
+    params.require(:movie).permit(:title)
   end
 
   def find_movie

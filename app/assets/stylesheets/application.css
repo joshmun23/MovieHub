@@ -22,7 +22,6 @@ body {
   background-size: 100% 100%;
 }
 
-
 .test {
   background-color: red;
   display: inline-block;
@@ -58,4 +57,17 @@ body {
   width: 1.5em;
   height: 1.5em;
   margin-left: 1em;
+}
+
+#titles-list-container {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  width: 50em;
+}
+
+#titles-list li {
+  list-style: none;
+  color: #000;
 }

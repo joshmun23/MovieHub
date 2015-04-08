@@ -6,6 +6,8 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "MovieHub" %></title>
 
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -14,51 +16,51 @@
 
   <body>
   <nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <%= image_tag "hipsterlogogenerator_1427901012986.png", size: "54x54" %>
-    </li>
+    <ul class="title-area">
+      <li class="name">
+        <%= image_tag "hipsterlogogenerator_1427901012986.png", size: "54x54" %>
+      </li>
     </ul>
 
-  <section class="top-bar-section">
-      <ul class="right">
+    <section class="top-bar-section">
+        <ul class="right">
 
           <%- if current_user -%>
-          <li><%= link_to "Add a New Movie", new_movie_path %></li>
+            <li><%= link_to "Add a New Movie", new_movie_path %></li>
           <%- end %>
 
-          <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
 
           <%- if current_user -%>
             <li class="has-dropdown">
               <a href="#">User Name</a>
-              <ul class="dropdown">
-                <li><a href="#">View Profile</a></li>
-                <li class="active"><a href="#">Edit Profile</a></li>
-                <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-              </ul>
-          </li>
-        <%- else -%>
+                <ul class="dropdown">
+                  <li><a href="#">View Profile</a></li>
+                  <li><a href="#">Edit Profile</a></li>
+                  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                </ul>
+            </li>
+          <%- else -%>
             <li><%= link_to 'Sign Up', new_user_registration_path %></li>
             <li><%= link_to 'Sign In', new_user_session_path %></li>
           <%- end -%>
         </ul>
 
 
-    <ul class="left">
-        <li class="has-form">
-        <div class="row collapse">
-          <div class="large-8 small-9 columns">
-            <input type="text" placeholder="Movies">
+      <ul class="left">
+          <li class="has-form">
+          <div class="row collapse">
+            <div class="large-8 small-9 columns">
+              <input type="text" placeholder="Find a Movie" class="search-fill">
+            </div>
+            <div class="large-4 small-3 columns">
+              <a href="#" class="button expand">Search</a>
+            </div>
           </div>
-          <div class="large-4 small-3 columns">
-            <a href="#" class="button expand">Search</a>
-          </div>
-        </div>
-      </li>
-      </ul>
-  </section>
-</nav>
+        </li>
+        </ul>
+    </section>
+  </nav>
 
   <div class="row">
     <%- flash.each do |key, value| -%>
@@ -66,21 +68,33 @@
         <%= value %>
       </div>
     <%- end -%>
-
-    <%= yield %>
   </div>
-  </body>
-  <%= javascript_include_tag 'application' %>
-  <%= yield :extra_footer %>
-  <script>
-    document.write('<script src=/js/vendor/'
-      + ('__proto__' in {} ? 'zepto' : 'jquery')
-      + '.js><\/script>');
-  </script>
 
-<script src="js/foundation/foundation.js"></script>
-<script src="js/foundation/foundation.topbar.js"></script>
-<!-- Other JS plugins can be included here -->
+  <div class="row">
+    <div class="movie-header">
+      <h1>MovieHub</h1>
+    </div>
+  </div>
+
+  <div class="body-content">
+
+    <% if params[:controller] && params[:action] == 'index' %>
+      <div id="feature-presentation">
+      </div>
+
+    <% end %>
+    <div class="large-12 columns main-content">
+
+        <%= yield %>
+
+    </div>
+  </div>
+
+</body>
+
+      <%= javascript_include_tag 'application' %>
+
+      <%= yield :extra_footer %>
 
 <script>
   $(document).foundation();

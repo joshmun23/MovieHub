@@ -3,6 +3,15 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all.limit(10)
+
+    @data = File.read('app/assets/javascripts/feature_presentation.json')
+
+    # binding.pry
+
+    # respond_to do |format|
+    #   format.js { render :json }
+    # end
+
   end
 
   def show
@@ -11,6 +20,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @feature = "Add"
   end
 
   def edit
@@ -36,7 +46,7 @@ class MoviesController < ApplicationController
 
       redirect_to movie_path(@movie)
     else
-      flash[:alert] = @movie.errors.full_messages # 'Movie Not Revised' 
+      flash[:alert] = @movie.errors.full_messages # 'Movie Not Revised'
       render :edit
       # redirect_to edit_movie_path(@movie)
     end

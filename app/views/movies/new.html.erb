@@ -1,15 +1,17 @@
-<h3>New Movie</h3>
+<h3>Add a Movie</h3>
 
-<%= form_for @movie do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :year %><br>
-    <%= f.text_field :year %>
-  </p>
-  <p>
-    <%= f.submit "Create a New Movie", class: "medium button radius"%>
-  </p>
-<% end %>
+<div class="row-form">
+  <%= form_for @movie do |f| %>
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "Insert Movie Title" %>
+    </p>
+    <p>
+      <%= f.label :year %>
+      <%= f.text_field :year, placeholder: "Insert Year Here" %>
+    </p>
+    <p>
+      <%= f.submit "Create a New Movie", class: "medium button radius"%>
+    </p>
+  <% end %>
+<div>

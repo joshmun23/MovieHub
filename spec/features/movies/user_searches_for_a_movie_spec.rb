@@ -7,7 +7,7 @@ feature 'user searches for a movie', %{
   scenario 'user inputs a valid search term' do
     @movies = []
 
-    10.times do |i|
+    10.times do
       @movies << FactoryGirl.create(:movie)
     end
 
@@ -22,7 +22,7 @@ feature 'user searches for a movie', %{
   scenario 'no search results found for user search' do
     @movies = []
 
-    10.times do |i|
+    10.times do
       @movies << FactoryGirl.create(:movie)
     end
 
@@ -37,7 +37,7 @@ feature 'user searches for a movie', %{
   scenario 'user inputs a blank search term' do
     @movies = []
 
-    10.times do |i|
+    10.times do
       @movies << FactoryGirl.create(:movie)
     end
 

@@ -101,4 +101,3 @@ $('#movie-submit').on('focusin',function() {
   $('#titles-list-container').hide();
   $('#titles-list').replaceWith('<ul id="titles-list"></ul>');
 });
-

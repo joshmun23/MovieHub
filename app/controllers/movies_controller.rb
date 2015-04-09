@@ -24,7 +24,6 @@ class MoviesController < ApplicationController
     get_movie
 
     if @movie.save
-      binding.pry
       flash[:notice] = 'Movie Successfully Created'
       redirect_to movies_path
     else
@@ -67,16 +66,16 @@ class MoviesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit(
-    :title,
-    :year,
-    :poster,
-    :genre,
-    :director,
-    :actors,
-    :runtime,
-    :rated,
-    :plot,
-    :imdb_id
+      :title,
+      :year,
+      :poster,
+      :genre,
+      :director,
+      :actors,
+      :runtime,
+      :rated,
+      :plot,
+      :imdb_id
     )
   end
 

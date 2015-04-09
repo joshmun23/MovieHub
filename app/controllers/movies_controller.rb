@@ -17,7 +17,6 @@ class MoviesController < ApplicationController
   end
 
   def create
-
     omdb_movie = Omdb::Api.new.fetch(movie_params[:title])
     @movie = Movie.new(movie_params)
     @movie.user = current_user

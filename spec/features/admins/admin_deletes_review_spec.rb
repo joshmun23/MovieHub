@@ -14,7 +14,7 @@ feature 'admin deletes reviews', %{
   scenario 'delete individual reviews' do
     review = FactoryGirl.create(:review)
     visit movie_path(review.movie)
-    first('.delete-review').click_link 'Delete Review'
+    first('.delete-review').click_link 'Delete icon'
 
     expect(page).to have_content('Review deleted')
     expect(page).to have_content(review.movie.title)

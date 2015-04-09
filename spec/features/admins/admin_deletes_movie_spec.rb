@@ -13,7 +13,7 @@ feature 'admin view users', %{
 
     visit movie_path(movie)
 
-    click_button 'Delete'
+    find(".delete-movie").click_link "Delete icon"
 
     expect(page).to_not have_content(movie.title)
   end

@@ -13,4 +13,6 @@
 !/log/.keep
 /tmp
 /coverage
+/public/uploads
 /*.png
+/public/uploads/*

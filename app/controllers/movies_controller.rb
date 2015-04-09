@@ -41,7 +41,6 @@ class MoviesController < ApplicationController
       redirect_to movie_path(@movie)
     else
       flash[:alert] = @movie.errors.full_messages
-
       render :edit
     end
   end

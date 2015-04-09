@@ -5,10 +5,10 @@ feature 'user searches for a movie', %{
 } do
 
   scenario 'user inputs a valid search term' do
-    @movies = []
+    movies = []
 
     10.times do
-      @movies << FactoryGirl.create(:movie)
+      movies << FactoryGirl.create(:movie)
     end
 
     visit movies_path
@@ -16,14 +16,14 @@ feature 'user searches for a movie', %{
     fill_in "search_title", with: "Ocean"
     click_on "Search"
 
-    @movies.each { |movie| expect(page).to have_content(movie.title) }
+    movies.each { |movie| expect(page).to have_content(movie.title) }
   end
 
   scenario 'no search results found for user search' do
-    @movies = []
+    movies = []
 
     10.times do
-      @movies << FactoryGirl.create(:movie)
+      movies << FactoryGirl.create(:movie)
     end
 
     visit movies_path
@@ -35,10 +35,10 @@ feature 'user searches for a movie', %{
   end
 
   scenario 'user inputs a blank search term' do
-    @movies = []
+    movies = []
 
     10.times do
-      @movies << FactoryGirl.create(:movie)
+      movies << FactoryGirl.create(:movie)
     end
 
     visit movies_path

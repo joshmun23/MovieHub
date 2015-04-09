@@ -15,12 +15,12 @@
     <fieldset class="review-<%= count %>">
       <legend><%= review.user.user_name %></legend>
       <p class="review-body-<%= count %>"><%= review.body %></p>
-      <% if review.user == current_user %>
+      <% if current_user && (review.user == current_user || current_user.admin) %>
         <div class="buttons-review edit edit-<%= count %>">
           <%= link_to "Edit", '#', name: count %>
         </div>
-        <div class="buttons-review delete delete-<%= count %>">
-          <%= link_to "Delete", movie_review_path(@movie, review), class: "delete-#{count}", method: :delete %>
+        <div class="buttons-review delete-review delete-<%= count %>">
+          <%= link_to "Delete Review", movie_review_path(@movie, review), class: "delete-#{count}", method: :delete %>
         </div>
 
         <div class="review-form review-form-<%= count %>">

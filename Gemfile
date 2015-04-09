@@ -6,12 +6,13 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'email_validator', '~> 1.5.0'
 gem 'devise'
 gem 'foundation-rails', github: "zurb/foundation-rails"
 gem 'kaminari'
+gem "carrierwave"
+gem 'fog'
+gem "dotenv-rails"
 
 group :development, :test do
   gem 'rspec-rails'
@@ -25,5 +26,6 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem 'valid_attribute'
   gem 'coveralls', require: false
+  gem 'fuubar'
   gem 'launchy'
 end

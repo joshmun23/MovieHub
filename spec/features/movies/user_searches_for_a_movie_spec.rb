@@ -46,6 +46,6 @@ feature 'user searches for a movie', %{
     fill_in "search_title", with: ""
     click_on "Search"
 
-    expect(page).to have_content("Please enter a search term")
+    expect(page).to have_content("Enter a search term")
   end
 end

@@ -38,14 +38,12 @@ class MoviesController < ApplicationController
       redirect_to movie_path(@movie)
     else
       flash[:alert] = @movie.errors.full_messages
-
       render :edit
     end
   end
 
   def destroy
     Movie.find(params[:id]).destroy
-
     redirect_to movies_path
   end
 

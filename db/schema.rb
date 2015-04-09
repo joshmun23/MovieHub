@@ -18,13 +18,21 @@ ActiveRecord::Schema.define(version: 20150406133324) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "title",      null: false
-    t.string   "year",       null: false
+    t.string   "year"
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "poster"
+    t.string   "genre"
+    t.string   "director"
+    t.string   "actors"
+    t.string   "runtime"
+    t.string   "rated"
+    t.string   "plot"
+    t.string   "imdb_id"
   end
 
-  add_index "movies", ["title", "year"], name: "index_movies_on_title_and_year", unique: true, using: :btree
+  add_index "movies", ["title", "user_id"], name: "index_movies_on_title_and_user_id", unique: true, using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.string   "body",                   null: false
@@ -60,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150406133324) do
     t.datetime "updated_at"
     t.string   "user_name",                              null: false
     t.boolean  "admin",                  default: false, null: false
+    t.string   "profile_photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

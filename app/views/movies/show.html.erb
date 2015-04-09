@@ -6,11 +6,11 @@
   </div>
 
   <div class="small-1 column">
-    <% if @movie.user == current_user %>
+    <% if current_user && (@movie.user == current_user || current_user.admin?) %>
       <div class="icons">
         <%= link_to image_tag("edit-icon.png"), edit_movie_path(@movie) %>
       </div>
-      <div class="icons">
+      <div class="icons delete-movie">
         <%= link_to image_tag("delete-icon.png"), movie_path(@movie), method: :delete %>
       </div>
     <% end %>
@@ -32,7 +32,7 @@
           </div>
         </div>
         <p class="small-10 columns review-body-<%= count %>"><%= review.body %></p>
-        <% if current_user && (review.user == current_user || current_user.admin) %>
+        <% if current_user && (review.user == current_user || current_user.admin?) %>
           <div class="small-10 columns review-form review-form-<%= count %>">
             <%= form_for [@movie, review] do |f|%>
               <div class="field">

@@ -74,6 +74,7 @@ $('.vote-down a').on('click', function(){
 
 // AUTOCOMPLETE MOVIE TITLE
 $('#movie_title').keyup(function() {
+  $('#titles-list').replaceWith('<ul id="titles-list"></ul>');
   var movieTitle = $(this).val();
   $('#titles-list-container').show();
   var titlesRequest = $.ajax({
@@ -83,7 +84,6 @@ $('#movie_title').keyup(function() {
   });
   titlesRequest.done(function(movieTitles) {
     var data = JSON.parse(movieTitles);
-    $('#titles-list').replaceWith('<ul id="titles-list"></ul>');
     for (i = 0; i < data.length; i++) {
       $('#titles-list').append('<li><a class="title" href="#">' + data[i] + '</a><li>');
     }

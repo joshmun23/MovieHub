@@ -95,7 +95,7 @@ $('#movie_title').keyup(function() {
       $('#movie_title').val(selectedTitle);
     });
   });
-})
+});
 
 $('#movie-submit').on('focusin',function() {
   $('#titles-list-container').hide();

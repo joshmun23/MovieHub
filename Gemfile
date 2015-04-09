@@ -30,5 +30,4 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'fuubar'
   gem 'launchy'
-  gem 'fuubar'
 end

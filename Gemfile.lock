@@ -374,7 +374,6 @@ DEPENDENCIES
   fog
   foundation-rails!
   fuubar
-  jbuilder (~> 2.0)
   jquery-rails
   kaminari
   launchy

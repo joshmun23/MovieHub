@@ -22,6 +22,7 @@ feature 'user add review', %{
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content('This movie is awesome!')
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario 'add an empty review' do

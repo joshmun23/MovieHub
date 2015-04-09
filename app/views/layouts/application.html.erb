@@ -31,7 +31,7 @@
 
           <%- if current_user -%>
             <li class="has-dropdown">
-              <%= image_tag current_user.profile_photo, size: "45x45" %>
+              <%= image_tag current_user.profile_photo, size: "45x45", class: "profile-image" %>
               <ul class="dropdown">
                 <li><a href="#">View Profile</a></li>
                 <li><%= link_to "Edit Profile", edit_user_registration_path(current_user) %></li>

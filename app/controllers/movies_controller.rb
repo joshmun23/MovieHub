@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:edit, :update, :show]
-  # before_action :authorize_user, except: [:index, :show]
 
   def index
     @movies = Movie.all.limit(10)
@@ -47,7 +46,6 @@ class MoviesController < ApplicationController
 
     redirect_to movies_path
   end
-
 
   protected
 

@@ -29,3 +29,44 @@ h3 {
 .row-movie-index {
   overflow: auto;
 }
+
+.slider-for img {
+  width: 30em;
+  height: auto;
+  margin: 5em;
+}
+
+.feature-presentation img {
+  width: 40em;
+  height: auto;
+  opacity: 1;
+}
+
+.movie-info li {
+  display: inline-block;
+}
+
+.r-container {
+  float: right;
+}
+
+.review-container {
+  padding-left: 10em;
+  padding-right: 10em;
+}
+
+.left-column {
+  margin-top: 1em;
+  position: fixed;
+  width: 20em;
+  height: auto;
+}
+
+.right-column .top-row {
+  position: fixed;
+}
+
+.right-column .bottom-row {
+  height: 10em;
+  overflow: auto;
+}

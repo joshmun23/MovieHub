@@ -3,19 +3,13 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all.limit(10)
-
-    @data = File.read('app/assets/javascripts/feature_presentation.json')
-
-    # binding.pry
-
-    # respond_to do |format|
-    #   format.js { render :json }
-    # end
-
   end
 
   def show
+    @movie = Movie.find(params[:id])
     @review = Review.new
+
+    render :show
   end
 
   def new

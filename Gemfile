@@ -54,4 +54,4 @@ gem 'valid_attribute', group: [:development, :test]
 gem 'email_validator', '~> 1.5.0', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', github: "zurb/foundation-rails"

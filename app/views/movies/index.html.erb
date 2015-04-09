@@ -1,11 +1,41 @@
-<div class="row-movie-index">
+<div class="feature-presentation">
+  <% 5.times do %>
+    <div><img src="http://main-designyoutrust.netdna-ssl.com/wp-content/uploads/2012/11/titanic-movie-poster-1997-1020339699.jpg"></div>
+    <div><img src="http://assets.iwannawatch.to/wp-content/uploads/2011/06/Reign-Over-Me-20071.jpg"></div>
+    <div><img src="http://www.fuelyourcreativity.com/files/Movie-Poster-Typography-8.jpeg"></div>
+    <div><img src="https://blackwhiteandredposters.files.wordpress.com/2010/11/gamer-movie-poster.jpg?w=460&h=681"></div>
+  <% end %>
+
+</div>
+
+<div class="slider-for">
+  <% @movies.each do |movie| %>
+    <div><%= link_to movie.title, movie_path(movie) %></div>
+  <% end %>
+</div>
+
+<div class="slider-nav">
+  <% @movies.each do |movie| %>
+    <div><%= link_to movie.title, movie_path(movie) %></div>
+  <% end %>
+</div>
+
+
+
+<!-- <div class="slider-nav">
+  <% 30.times do %>
+    <div><img src="https://filmfork-cdn.s3.amazonaws.com/content/Godzilla%20-%209.gif" alt="hi"/></div>
+  <% end %>
+</div>
+ -->
+<!-- <div class="row-movie-index">
   <div class="movies">
     <% @movies.each do | movie | %>
-    <div class="panel">
-      <span><%= link_to movie.title, movie_path(movie) %></span>
-      <%= movie.year %>
-      <span><%= link_to "Edit Movie", edit_movie_path(movie) %></span>
-    </div>
+      <div class="panel">
+        <span><%= link_to movie.title, movie_path(movie) %></span>
+        <%= movie.year %>
+        <span><%= link_to "Edit Movie", edit_movie_path(movie) %></span>
+      </div>
     <% end %>
   </div>
-</div>
+</div> -->

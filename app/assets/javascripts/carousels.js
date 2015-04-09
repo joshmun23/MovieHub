@@ -1,21 +1,30 @@
-$(document).ready(function() {
+$(document).ready(function(){
+  $('.feature-presentation').slick({
+    centerMode: true,
+    centerPadding: '60px',
+    slidesToShow: 7,
+    autoplay: true,
+    autoplaySpeed: 2000,
 
-  $("#feature-presentation").owlCarousel({
-    jsonPath : 'app/assets/javascripts/feature_presentation.json',
-    debugger;
-    jsonSuccess : customDataSuccess
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
+    ]
   });
-
-  function customDataSuccess(data){
-    var content = "";
-    for(var i in data["items"]){
-
-       var img = data["items"][i].img;
-       var alt = data["items"][i].alt;
-
-       content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">"
-    }
-    $("feature-presentation").html(content);
-  }
-
 });

@@ -10,7 +10,7 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -77,27 +77,14 @@
   </div>
 
   <div class="body-content">
-
-    <% if params[:controller] && params[:action] == 'index' %>
-      <div id="feature-presentation">
-      </div>
-
-    <% end %>
     <div class="large-12 columns main-content">
+      <div class="opacity-reset">
 
         <%= yield %>
 
+      </div>
     </div>
   </div>
-
+  <%= javascript_include_tag 'application' %>
 </body>
-
-      <%= javascript_include_tag 'application' %>
-
-      <%= yield :extra_footer %>
-
-<script>
-  $(document).foundation();
-</script>
-
 </html>

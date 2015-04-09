@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  # before_action :authorize_user, except: [:index, :show]
 
   def create
     @movie = Movie.find(params[:movie_id])

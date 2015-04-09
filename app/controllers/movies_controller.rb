@@ -24,6 +24,7 @@ class MoviesController < ApplicationController
       flash[:notice] = 'Movie Successfully Created'
       redirect_to movies_path
     else
+      flash[:errors] = @movie.errors.full_messages.join(' ')
       render :new
     end
   end

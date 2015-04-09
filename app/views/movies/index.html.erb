@@ -5,7 +5,7 @@
   <% @movies.each do | movie | %>
   <div class="panel">
     <span><%= link_to movie.title, movie_path(movie) %></span>
-    <%= movie.year %>
+      <%= movie.year %>
     <span><%= link_to "Edit Movie", edit_movie_path(movie) %></span>
   </div>
   <% end %>

@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
 
     flash[:notice] = "No movie matches found" if @movies.empty?
 
-    flash[:notice] = "Please enter a search term" if params[:search_title].empty?
+    flash[:notice] = "Enter a search term" if params[:search_title].empty?
 
     render 'movies/index'
   end

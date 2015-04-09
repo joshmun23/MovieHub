@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
   def destroy
     User.destroy(params[:id])
     flash[:notice] = 'User Successfully Annihilated'

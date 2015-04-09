@@ -13,8 +13,5 @@
 !/log/.keep
 /tmp
 /coverage
-<<<<<<< HEAD
 /public/uploads
-=======
 /*.png
->>>>>>> master

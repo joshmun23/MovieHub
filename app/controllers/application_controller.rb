@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :user_name
-    devise_parameter_sanitizer.for(:sign_up) << :profile_photo
-    devise_parameter_sanitizer.for(:account_update) << :profile_photo
+    devise_parameter_sanitizer.for(:sign_up).concat [:user_name, :profile_photo]
+    devise_parameter_sanitizer.for(:account_update).concat [:profile_photo, :user_name]
   end
 end

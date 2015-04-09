@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   before_action :find_movie, only: [:edit, :update, :show]
 
   def index
-    @movies = Movie.all.limit(10)
+    @movies = Movie.order(:title).page params[:page]
   end
 
   def show

@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'email_validator', '~> 1.5.0'
 gem 'devise'
 gem 'foundation-rails', github: "zurb/foundation-rails"
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails'

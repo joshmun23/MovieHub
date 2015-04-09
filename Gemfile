@@ -27,4 +27,5 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'coveralls', require: false
   gem 'launchy'
+  gem 'fuubar'
 end

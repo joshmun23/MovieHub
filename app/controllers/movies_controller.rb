@@ -17,12 +17,12 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(movie_params)
     omdb_movie = Omdb::Api.new.fetch(movie_params[:title])
-    binding.pry
+    @movie = Movie.new(movie_params)
     @movie.user = current_user
 
     if @movie.save
+      binding.pry
       flash[:notice] = 'Movie Successfully Created'
       redirect_to movies_path
     else
@@ -38,9 +38,8 @@ class MoviesController < ApplicationController
 
       redirect_to movie_path(@movie)
     else
-      flash[:alert] = @movie.errors.full_messages # 'Movie Not Revised'
+      flash[:alert] = @movie.errors.full_messages
       render :edit
-      # redirect_to edit_movie_path(@movie)
     end
   end
 
@@ -53,7 +52,18 @@ class MoviesController < ApplicationController
   protected
 
   def movie_params
-    params.require(:movie).permit(:title)
+    params.require(:movie).permit(
+    :title,
+    :year,
+    :poster,
+    :genre,
+    :director,
+    :actors,
+    :runtime,
+    :rated,
+    :plot,
+    :imdb_id
+    )
   end
 
   def find_movie

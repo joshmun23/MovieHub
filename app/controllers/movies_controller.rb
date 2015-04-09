@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   before_action :find_movie, only: [:edit, :update, :show]
 
   def index
-    @movies = Movie.all.limit(10)
+    @movies = Movie.order(:title).page params[:page]
   end
 
   def show
@@ -26,6 +26,7 @@ class MoviesController < ApplicationController
       flash[:notice] = 'Movie Successfully Created'
       redirect_to movies_path
     else
+      flash[:errors] = @movie.errors.full_messages.join(' ')
       render :new
     end
   end
@@ -39,6 +40,7 @@ class MoviesController < ApplicationController
       redirect_to movie_path(@movie)
     else
       flash[:alert] = @movie.errors.full_messages
+
       render :edit
     end
   end
@@ -47,7 +49,6 @@ class MoviesController < ApplicationController
     Movie.find(params[:id]).destroy
     redirect_to movies_path
   end
-
 
   protected
 
@@ -68,5 +69,11 @@ class MoviesController < ApplicationController
 
   def find_movie
     @movie = Movie.find(params[:id])
+  end
+
+  def authorize_user
+    if !user_signed_in? || !current_user.admin?
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end

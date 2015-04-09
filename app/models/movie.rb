@@ -3,7 +3,11 @@ class Movie < ActiveRecord::Base
   has_many :reviews
 
   validates :title, presence: true
-  validates :year, presence: true
+  validates :year,
+    presence: true,
+    numericality: true
   validates :user,
     presence: true
+
+  paginates_per 25
 end

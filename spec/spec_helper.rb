@@ -26,4 +26,11 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
+
+  config.before :each do
+    ActionMailer::Base.deliveries.clear
+  end
+
+  config.filter_run_including focus: true
+  config.run_all_when_everything_filtered = true
 end

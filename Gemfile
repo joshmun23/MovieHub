@@ -13,6 +13,7 @@ gem 'devise'
 gem 'foundation-rails', github: "zurb/foundation-rails"
 gem 'rails-jquery-autocomplete'
 gem 'omdb'
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails'

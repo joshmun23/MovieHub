@@ -5,6 +5,12 @@ feature 'user view a movie', %{
   I want to view a list of movies
   So that I can pick movies to review
 } do
+  let(:user) { FactoryGirl.create(:user) }
+
+  before :each do
+    sign_in_as user
+  end
+
   scenario 'see movie' do
     movies = []
     5.times do

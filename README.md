@@ -1,7 +1,9 @@
-#MovieHub by Ezequiel Lopz, Josh Munn, Jack Sy and Duncan Rose
-#=============================================================
-###Setting up Poltergeist
-###----------------------
+http://www.MovieHub.click
+-------------------------
+by Ezequiel Lopez, Josh Mun, Jack Sy and Duncan Rose
+
+Setting up Poltergeist
+
 install phantomjs
 ```
 brew install phantomjs
@@ -58,5 +60,4 @@ see what is happening:
 ```
 save_screenshot("capybara-js.png")
 ```
-=============================================================
-[![Build Status](https://travis-ci.orgDuncanRose/MovieHub.svg?branch=master)](https://travis-ci.org/DuncanRose/MovieHub) [![CodeMovieHub Climate](https://codeclimate.com/github/DuncanRose/MovieHub.png)](https://codeclimate.com/github/DuncanRose/MovieHub) [![Coverage Status](https://coveralls.io/repos/DuncanRose/MovieHub/badge.png)](https://coveralls.io/r/DuncanRose/MovieHub)
+[![BuildStatus](https://travis-ci.org/DuncanRose/MovieHub.svg?branch=master)](https://travis-ci.org/DuncanRose/MovieHub) [![Code/MovieHubClimate](https://codeclimate.com/github/DuncanRose/MovieHub.png)](https://codeclimate.com/github/DuncanRose/MovieHub) [![CoverageStatus](https://coveralls.io/repos/DuncanRose/MovieHub/badge.png)](https://coveralls.io/r/DuncanRose/MovieHub)

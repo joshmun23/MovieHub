@@ -18,7 +18,7 @@ feature 'user add review', %{
 
     fill_in 'review_body', with: 'This movie is awesome!'
 
-    click_button 'Create Review'
+    click_button 'Submit Review'
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content('This movie is awesome!')
@@ -31,8 +31,7 @@ feature 'user add review', %{
     visit movie_path(movie)
 
     fill_in 'review_body', with: ""
-
-    click_button 'Create Review'
+    click_button 'Submit Review'
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content('Body can\'t be blank')

@@ -27,7 +27,7 @@
           <li><%= link_to "Add a New Movie", new_movie_path %></li>
           <%- end %>
 
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><%= link_to "Home", movies_path %></li>
 
           <%- if current_user -%>
             <li class="has-dropdown">

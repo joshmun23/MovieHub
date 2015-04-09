@@ -17,7 +17,7 @@ feature 'user deletes a review', %{
 
     visit movie_path(movie)
 
-    first('.delete').click_link 'Delete'
+    first('.delete-review').click_link 'Delete icon'
 
     expect(page).to have_content('Review deleted')
     expect(page).to have_content(movie.title)

@@ -15,20 +15,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update_attributes(admin: true)
+    @user.update_admin_status
 
     if @user.save
       flash[:notice] = 'Admin Successfully Created'
-
-      redirect_to users_path
     else
       flash[:errors] = @user.errors.full_messages
-
-      render
     end
-  end
-
-  def admin?
-    role == "admin"
+    redirect_to users_path
   end
 end

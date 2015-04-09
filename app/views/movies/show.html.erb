@@ -1,43 +1,63 @@
-<h3><%= @movie.title %></h3>
 
-<p><%= @movie.year %></p>
+<div class="row">
+  <div class="small-11 columns">
+    <h3><%= @movie.title %></h3>
+    <p><%= @movie.year %></p>
+  </div>
 
-<div data-alert class="alert-box">
-  <%= button_to "Delete this Movie", {:controller => :movies,
-        :action => 'destroy', :id => @movie.id }, :method =>
-        :delete, class: "medium button radius" %>
-  <a href="#" class="close">&times;</a>
+  <div class="small-1 column">
+    <% if current_user && (@movie.user == current_user || current_user.admin?) %>
+      <div class="icons">
+        <%= link_to image_tag("edit-icon.png"), edit_movie_path(@movie) %>
+      </div>
+      <div class="icons delete-movie">
+        <%= link_to image_tag("delete-icon.png"), movie_path(@movie), method: :delete %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <% if !@movie.reviews.empty? %>
   <% count = 0 %>
-  <% @movie.reviews.each do |review| %>
-    <fieldset class="review-<%= count %>">
+  <% @movie.reviews.order('created_at').each do |review| %>
+    <fieldset class="row review-<%= count %>">
       <legend><%= review.user.user_name %></legend>
-      <p class="review-body-<%= count %>"><%= review.body %></p>
-      <% if review.user == current_user %>
-        <div class="buttons-review edit edit-<%= count %>">
-          <%= link_to "Edit", '#', name: count %>
+        <div class="small-1 column">
+          <div class="vote-up">
+            <%= link_to image_tag("up-vote.png"), "#", num: count, movie_id: @movie.id, review_id: review.id %>
+          </div>
+          <p class="icons votes votes-<%= count %>"><%= review.votes %></p>
+          <div class="vote-down">
+            <%= link_to image_tag("down-vote.png"), "#", num: count, movie_id: @movie.id, review_id: review.id %>
+          </div>
         </div>
-        <div class="buttons-review delete delete-<%= count %>">
-          <%= link_to "Delete", movie_review_path(@movie, review), class: "delete-#{count}", method: :delete %>
-        </div>
-
-        <div class="review-form review-form-<%= count %>">
-          <%= form_for [@movie, review] do |f|%>
-            <div class="field">
-              <%= f.text_area :body %>
-            </div>
-            <div class="actions">
-              <%= f.submit %>
-              <div class='answer-button cancel'>
-                <%= link_to 'Cancel', '#', name: count %>
+        <p class="small-10 columns review-body-<%= count %>"><%= review.body %></p>
+        <% if current_user && (review.user == current_user || current_user.admin?) %>
+          <div class="small-10 columns review-form review-form-<%= count %>">
+            <%= form_for [@movie, review] do |f|%>
+              <div class="field">
+                <%= f.text_area :body %>
               </div>
+              <div class="actions">
+                <%= f.submit %>
+              </div>
+            <% end %>
+          </div>
+          <div class="small-1 column">
+            <div class="icons edit-review edit-<%= count %>">
+              <%= link_to image_tag("edit-icon.png"), "#", name: count %>
             </div>
-          <% end %>
-        </div>
-        <% count += 1 %>
-      <% end %>
+
+            <div class="icons delete-review delete-<%= count %>">
+              <%= link_to image_tag("delete-icon.png"), movie_review_path(@movie, review), method: :delete %>
+            </div>
+
+            <div class="icons cancel-review cancel-<%= count %>">
+              <%= link_to image_tag("delete-icon.png"), '#', name: count %>
+            </div>
+          </div>
+        <% end %>
+      <% count += 1 %>
     </fieldset>
   <% end %>
 <% end %>
@@ -49,7 +69,7 @@
       <%= f.text_area :body %>
     </div>
     <div class="button">
-      <%= f.submit %>
+      <%= f.submit "Submit Review", class: "medium button radius"%>
     </div>
   <% end %>
 </fieldset>

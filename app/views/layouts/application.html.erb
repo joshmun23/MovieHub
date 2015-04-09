@@ -27,7 +27,7 @@
           <li><%= link_to "Add a New Movie", new_movie_path %></li>
           <%- end %>
 
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><%= link_to "Home", movies_path %></li>
 
           <%- if current_user -%>
             <li class="has-dropdown">
@@ -72,14 +72,7 @@
   </body>
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
-  <script>
-    document.write('<script src=/js/vendor/'
-      + ('__proto__' in {} ? 'zepto' : 'jquery')
-      + '.js><\/script>');
-  </script>
 
-<script src="js/foundation/foundation.js"></script>
-<script src="js/foundation/foundation.topbar.js"></script>
 <!-- Other JS plugins can be included here -->
 
 <script>

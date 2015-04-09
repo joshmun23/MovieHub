@@ -36,18 +36,15 @@ class MoviesController < ApplicationController
 
       redirect_to movie_path(@movie)
     else
-      flash[:alert] = @movie.errors.full_messages # 'Movie Not Revised'
+      flash[:alert] = @movie.errors.full_messages
       render :edit
-      # redirect_to edit_movie_path(@movie)
     end
   end
 
   def destroy
     Movie.find(params[:id]).destroy
-
     redirect_to movies_path
   end
-
 
   protected
 
@@ -57,5 +54,11 @@ class MoviesController < ApplicationController
 
   def find_movie
     @movie = Movie.find(params[:id])
+  end
+
+  def authorize_user
+    if !user_signed_in? || !current_user.admin?
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end

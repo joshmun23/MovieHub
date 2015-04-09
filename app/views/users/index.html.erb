@@ -3,16 +3,13 @@
     <li>
       User Name: <%= user.user_name %>
 
-      
-
-    <div>
-      <% if current_user.admin? %>
-        <%= button_to 'Delete User', user, method: :delete, class: "medium button radius" %>
-
-        <%= button_to "Make Admin", { action: "update", id: user.id}, { method:
-                                    :patch, class: "medium button radius"} %>
-      <% end %>
-    </div>
+      <div>
+        <% if current_user.admin? %>
+          <%= button_to 'Delete User', user, method: :delete, class: "medium button radius" %>
+          <%= button_to "Make #{user.user_name} Admin",
+            { action: "update", id: user.id }, { method: :patch, class: "medium button radius" } %>
+        <% end %>
+      </div>
 
       <span>User Email: <%= user.email %></span>
 

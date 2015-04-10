@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.order(:title)
-    @trending_movies = Movie.last(5)
+    @trending_movies = TrendingMovies.new(@movies).find_movies
   end
 
   def show

@@ -26,6 +26,6 @@ feature 'user uploads picture', %{
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
-    expect(find('.profile-image')['src']).to have_content "reel.jpeg"
+    expect(find('#profile-icon')['src']).to have_content "reel.jpeg"
   end
 end

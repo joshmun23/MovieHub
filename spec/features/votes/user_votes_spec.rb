@@ -16,7 +16,10 @@ feature 'user votes on a review', %{
     movie = review.movie
 
     visit movie_path(movie)
-    find('.vote-up').click_link 'Up vote'
+
+    within('.vote-up') do
+      find('a').trigger('click')
+    end
 
     within 'p.votes' do
       expect(page).to have_content('1')
@@ -28,7 +31,10 @@ feature 'user votes on a review', %{
     movie = review.movie
 
     visit movie_path(movie)
-    find('.vote-down').click_link 'Down vote'
+
+    within('.vote-down') do
+      find('a').trigger('click')
+    end
 
     within 'p.votes' do
       expect(page).to have_content('-1')
@@ -40,8 +46,11 @@ feature 'user votes on a review', %{
     movie = review.movie
 
     visit movie_path(movie)
-    find('.vote-up').click_link 'Up vote'
-    find('.vote-up').click_link 'Up vote'
+
+    within('.vote-up') do
+      find('a').trigger('click')
+      find('a').trigger('click')
+    end
 
     within 'p.votes' do
       expect(page).to have_content('1')

@@ -9,8 +9,12 @@ class SearchesController < ApplicationController
   end
 
   def show_movie
-    binding.pry
     movie = Movie.find_by(title: params[:search_title])
-    redirect_to movie_path(movie)
+    if movie
+      redirect_to movie_path(movie)
+    else
+      flash[:alert] = "No movie matches found"
+      redirect_to movies_path
+    end
   end
 end

@@ -33,7 +33,7 @@
         <%- if current_user -%>
           <li class="has-dropdown">
 
-            <%= link_to image_tag("http://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg", id: "profile-icon"), "#", id: "profile-link", "data-dropdown" => "hover1", "data-options" => "is_hover:true; hover_timeout:5000" %>
+            <%= link_to image_tag(current_user.profile_photo, id: "profile-icon"), "#", id: "profile-link", "data-dropdown" => "hover1", "data-options" => "is_hover:true; hover_timeout:5000" %>
 
             <ul class="dropdown">
               <li><a href="#">View Profile</a></li>

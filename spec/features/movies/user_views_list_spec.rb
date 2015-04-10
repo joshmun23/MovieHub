@@ -12,9 +12,9 @@ feature 'user view a movie', %{
   end
 
   scenario 'see movie' do
-    movie_1 << FactoryGirl.create(:movie)
-    movie_2 << FactoryGirl.create(:movie, title: "title_2")
-    movie_3 << FactoryGirl.create(:movie, title: "title_3")
+    movie_1 = FactoryGirl.create(:movie)
+    movie_2 = FactoryGirl.create(:movie, title: "title_2")
+    movie_3 = FactoryGirl.create(:movie, title: "title_3")
 
     visit movies_path
 
@@ -26,9 +26,7 @@ feature 'user view a movie', %{
   scenario 'view details of an movie' do
     movie = FactoryGirl.create(:movie)
 
-    visit movies_path
-
-    click_link movie.title
+    visit movie_path(movie)
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content(movie.year)

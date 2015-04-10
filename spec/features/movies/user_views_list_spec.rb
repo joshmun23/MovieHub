@@ -5,19 +5,22 @@ feature 'user view a movie', %{
   I want to view a list of movies
   So that I can pick movies to review
 } do
+  let(:user) { FactoryGirl.create(:user) }
+
+  before :each do
+    sign_in_as user
+  end
+
   scenario 'see movie' do
-    movies = []
-    5.times do
-      movies << FactoryGirl.create(:movie)
-    end
+    movie_1 << FactoryGirl.create(:movie)
+    movie_2 << FactoryGirl.create(:movie, title: "title_2")
+    movie_3 << FactoryGirl.create(:movie, title: "title_3")
 
     visit movies_path
 
-    expect(page).to have_content(movies[0].title)
-    expect(page).to have_content(movies[1].title)
-    expect(page).to have_content(movies[2].title)
-    expect(page).to have_content(movies[3].title)
-    expect(page).to have_content(movies[4].title)
+    expect(page).to have_content(movie_1.title)
+    expect(page).to have_content(movie_2.title)
+    expect(page).to have_content(movie_3.title)
   end
 
   scenario 'view details of an movie' do

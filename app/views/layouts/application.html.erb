@@ -14,7 +14,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+<body>
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
@@ -23,42 +23,49 @@
     </ul>
 
     <section class="top-bar-section">
-        <ul class="right">
+      <ul class="right">
+        <%- if current_user -%>
+          <li><%= link_to "Add a New Movie", new_movie_path %></li>
+        <%- end -%>
 
-          <%- if current_user -%>
-            <li><%= link_to "Add a New Movie", new_movie_path %></li>
-          <%- end %>
+        <li class="active"><%= link_to "Home", movies_path %></li>
 
-            <li><a href="#">Home</a></li>
+        <%- if current_user -%>
+          <li class="has-dropdown">
 
-          <%- if current_user -%>
-            <li class="has-dropdown">
-              <a href="#">User Name</a>
-                <ul class="dropdown">
-                  <li><a href="#">View Profile</a></li>
-                  <li><a href="#">Edit Profile</a></li>
-                  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-                </ul>
-            </li>
-          <%- else -%>
-            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <li><%= link_to 'Sign In', new_user_session_path %></li>
-          <%- end -%>
-        </ul>
+            <%= link_to image_tag("http://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg", id: "profile-icon"), "#", id: "profile-link", "data-dropdown" => "hover1", "data-options" => "is_hover:true; hover_timeout:5000" %>
 
+            <ul class="dropdown">
+              <li><a href="#">View Profile</a></li>
+              <li><%= link_to "Edit Profile", edit_user_registration_path(current_user) %></li>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <%- else -%>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <%- end -%>
+      </ul>
 
       <ul class="left">
-          <li class="has-form">
+        <li class="has-form">
           <div class="row collapse">
-            <div class="large-8 small-9 columns">
-              <input type="text" placeholder="Find a Movie" class="search-fill">
-            </div>
-            <div class="large-4 small-3 columns">
-              <a href="#" class="button expand">Search</a>
-            </div>
+            <%= form_tag(show_movie_path, method: "get") do %>
+              <div class="large-8 small-9 columns">
+                <%= text_field_tag(:search_title, "Find a Movie") %>
+              </div>
+              <div id="titles-list-container">
+                <ul id="titles-list"></ul>
+              </div>
+              <div class="large-4 small-3 columns">
+                <%= submit_tag("Search", class: "button", id: "search-button") %>
+              </div>
+            <% end %>
           </div>
         </li>
-        </ul>
+      </ul>
+
+
     </section>
   </nav>
 

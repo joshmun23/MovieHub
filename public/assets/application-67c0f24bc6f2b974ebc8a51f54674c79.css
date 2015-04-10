@@ -9877,16 +9877,42 @@ body {
 }
 
 /* line 42, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+.cancel,
 .review-form {
   display: none;
 }
 
-/* line 46, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+/* line 47, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+.icons {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 1em;
+}
+
+/* line 53, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+.votes {
+  margin-left: 1.4em;
+}
+
+/* line 57, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+.vote-up,
+.vote-down {
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 1em;
+}
+
+/* line 65, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+.review-form {
+  display: none;
+}
+
+/* line 69, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
 .has-form .button {
   background-color: #990909;
 }
 
-/* line 50, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+/* line 73, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
 .has-form .button:hover {
   background-color: white;
   border: solid;
@@ -9896,32 +9922,38 @@ body {
   font-weight: bold;
 }
 
-/* line 60, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+/* line 83, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
 .main-content {
-  padding-right: 1em;
-  height: 80%;
-  background-image: url(http://scanachmedia.com/wp-content/uploads/2013/12/COLD-EDGE-BACKGROUND.jpg);
-  background-size: 100% 100%;
-  opacity: 0.8;
+  padding-left: 5em;
+  padding-right: 5em;
+  height: 80vh;
+  background-color: black;
+  box-shadow: 5px 5px 5px black;
+  border-radius: .6em;
   overflow: auto;
+  opacity: 0.6;
+  background-image: url(http://nilusi.com/images/img5/black-texture-design-inspiration-2.jpg);
+  background-size: 100% 100%;
 }
 
-/* line 69, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+/* line 97, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
 .body-content {
   margin-left: 3.45em;
   margin-right: 3.45em;
 }
 
-/* line 74, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+/* line 102, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
 .movie-header h1 {
   text-align: center;
   color: white;
   text-shadow: 0 0 3px #FF0000, 0 0 10px yellow;
   letter-spacing: .5em;
   font-family: 'Lobster', cursive;
+  margin-top: -.1em;
+  margin-bottom: -.075em;
 }
 
-/* line 82, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+/* line 112, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
 .right {
   border-bottom: solid;
   border-width: .5em;
@@ -9929,7 +9961,7 @@ body {
   border-radius: 5em;
 }
 
-/* line 89, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+/* line 119, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
 .left {
   border-bottom: solid;
   border-width: .5em;
@@ -9937,9 +9969,19 @@ body {
   border-radius: 5em;
 }
 
-/* line 96, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+/* line 126, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
 .row-carousel {
   margin-top: 1em;
   margin-bottom: 1em;
   text-align: 1em;
+}
+
+/* line 132, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+.top-bar {
+  background-color: #3C0201;
+}
+
+/* line 136, /Users/joshmun23/challenges/MovieHub/app/assets/stylesheets/application.scss */
+.body-content .opacity-reset {
+  opacity: 1;
 }

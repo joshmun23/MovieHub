@@ -12,23 +12,21 @@
  *= require foundation_and_overrides
  *= require_tree .
  *= require_self
- //= require foundation_and_overrides
-
  */
 
 
 body {
   background-color: #3C0201;
-  color: #3C0201;
+  color: #fff;
+  font-weight: bold;
 }
-
 
 .test {
   background-color: red;
   display: inline-block;
 }
 
- .flash {
+.flash {
   background-color: #49A840; /* green */
   border-radius: 0.5em;
   color: #fff;
@@ -37,6 +35,36 @@ body {
   margin-top: 1em;
   display: inline-block;
 }
+
+.cancel-review,
+.review-form {
+  display: none;
+}
+
+.movie-icons {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 1em;
+}
+
+.icons {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 1em;
+}
+
+.votes {
+  margin-left: 1.4em;
+}
+
+.vote-up,
+.vote-down {
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 1em;
+}
+
 
 .review-form {
   display: none;
@@ -64,7 +92,7 @@ body {
   box-shadow: 5px 5px 5px black;
   border-radius: .6em;
   overflow: auto;
-  opacity: 0.6;
+  opacity: 1;
   background-image: url(http://nilusi.com/images/img5/black-texture-design-inspiration-2.jpg);
   background-size: 100% 100%;
 }
@@ -111,4 +139,34 @@ body {
 
 .body-content .opacity-reset {
   opacity: 1;
+}
+
+#titles-list-container {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  width: 50em;
+}
+
+#titles-list li {
+  list-style: none;
+  color: #000;
+}
+
+li {
+  list-style: none;
+}
+
+#profile-link {
+  margin: 0;
+  padding: 0;
+}
+
+#profile-icon {
+  width: 45px;
+  height: 45px;
+  margin: 0;
+  padding: 0;
+  margin-top: -3.5px;
 }

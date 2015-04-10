@@ -17,7 +17,7 @@ feature 'user edits review', %{
 
     visit movie_path(movie)
 
-    first('.edit').click_link 'Edit'
+    first('.edit-review').click_link 'Edit'
 
     first('.review-form').fill_in 'review_body', with: 'This movie my new review'
     first('.actions').click_button 'Update Review'
@@ -32,7 +32,7 @@ feature 'user edits review', %{
 
     visit movie_path(movie)
 
-    first('.edit').click_link 'Edit'
+    first('.edit-review').click_link 'Edit'
 
     first('.review-form').fill_in 'review_body', with: ''
     first('.actions').click_button 'Update Review'

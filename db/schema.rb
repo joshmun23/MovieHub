@@ -11,28 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331150620) do
+ActiveRecord::Schema.define(version: 20150409233425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "movies", force: :cascade do |t|
     t.string   "title",      null: false
-    t.string   "year",       null: false
+    t.string   "year"
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "poster"
+    t.string   "genre"
+    t.string   "director"
+    t.string   "actors"
+    t.string   "runtime"
+    t.string   "rated"
+    t.string   "plot"
+    t.string   "imdb_id"
   end
 
-  add_index "movies", ["title", "year"], name: "index_movies_on_title_and_year", unique: true, using: :btree
+  add_index "movies", ["title", "user_id"], name: "index_movies_on_title_and_user_id", unique: true, using: :btree
 
   create_table "reviews", force: :cascade do |t|
-    t.string   "body",       null: false
+    t.string   "body",                   null: false
+    t.integer  "user_id",                null: false
+    t.integer  "movie_id",               null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "votes",      default: 0
+  end
+
+  create_table "user_votes", force: :cascade do |t|
     t.integer  "user_id",    null: false
-    t.integer  "movie_id",   null: false
+    t.integer  "review_id",  null: false
+    t.string   "vote_type",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "user_votes", ["user_id", "review_id", "vote_type"], name: "index_user_votes_on_user_id_and_review_id_and_vote_type", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -49,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150331150620) do
     t.datetime "updated_at"
     t.string   "user_name",                              null: false
     t.boolean  "admin",                  default: false, null: false
+    t.string   "profile_photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

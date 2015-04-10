@@ -7,6 +7,10 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
     admin false
+
+    factory :user_with_photo do
+      profile_photo { Rack::Test::UploadedFile.new("#{Rails.root}/app/assets/images/reel.jpeg") }
+    end
   end
 
   factory :movie do

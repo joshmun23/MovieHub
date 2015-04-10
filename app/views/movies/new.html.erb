@@ -6,12 +6,14 @@
       <%= f.label :title %>
       <%= f.text_field :title, placeholder: "Insert Movie Title" %>
     </p>
+    <div id="titles-list-container">
+      <ul id="titles-list"></ul>
+    </div>
     <p>
-      <%= f.label :year %>
-      <%= f.text_field :year, placeholder: "Insert Year Here" %>
-    </p>
-    <p>
-      <%= f.submit "Create a New Movie", class: "medium button radius"%>
+      <%= f.submit "Create a New Movie", class: "medium button radius", id: "movie-submit" %>
     </p>
   <% end %>
 <div>
+
+
+

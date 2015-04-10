@@ -2,9 +2,9 @@ $(document).ready(function(){
   $('.feature-presentation').slick({
     centerMode: true,
     centerPadding: '60px',
-    slidesToShow: 7,
+    slidesToShow: 3,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1000,
 
     responsive: [
       {

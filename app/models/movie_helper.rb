@@ -1,4 +1,4 @@
-class TrendingMovies
+class MovieHelper
   def initialize(movies)
     @movies = movies
   end
@@ -18,5 +18,23 @@ class TrendingMovies
     end
 
     trends
+  end
+
+  def genre_splitter
+    genres = {}
+
+    @movies.each do |movie|
+      movie_genres = movie.genre.split(', ')
+
+      movie_genres.each do |genre|
+        if genres[genre]
+          genres[genre] << movie
+        else
+          genres[genre] = [movie]
+        end
+      end
+    end
+
+    genres
   end
 end

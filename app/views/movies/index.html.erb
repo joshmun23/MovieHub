@@ -3,22 +3,22 @@
     <% @trending_movies.each do |movie| %>
       <div><%= link_to image_tag(movie.poster, class: "tending-movies-img"), movie_path(movie) %></div>
     <% end %>
-
   </div>
 
-  <div class="genres-carousel-container slider-nav">
-  <!-- <div class="feature-presentation"> -->
-     <% @movies.each do |movie| %>
-      <div class="carousel-movie-container">
-        <div class="poster-container">
-          <%= link_to image_tag(movie.poster, class: "carousel-picture"), movie_path(movie) %>
+  <% @genres.keys.each do |genre| %>
+    <div class="genres-carousel-container slider-nav">
+      <% @genres[genre].each do |movie| %>
+        <div class="carousel-movie-container">
+          <div class="poster-container">
+            <%= link_to image_tag(movie.poster, class: "carousel-picture"), movie_path(movie) %>
+          </div>
+          <div class="title-container">
+            <p><%= movie.title %></p>
+          </div>
         </div>
-        <div class="title-container">
-          <p><%= movie.title %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 
   <ul>
     <% if current_user %>

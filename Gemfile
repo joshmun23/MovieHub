@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.5'
+
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -31,4 +33,11 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'fuubar'
   gem 'launchy'
+end
+
+group :production do
+  gem 'puma'
+  gem 'rails_stdout_logging'
+  gem 'rails_12factor'
+  gem 'rails_serve_static_assets'
 end

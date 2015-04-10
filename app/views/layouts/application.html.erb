@@ -52,7 +52,7 @@
           <div class="row collapse">
             <%= form_tag(show_movie_path, method: "get") do %>
               <div class="large-8 small-9 columns">
-                <%= text_field_tag(:search_title, "Find a Movie") %>
+                <%= text_field_tag :search_title, nil, placeholder: "Find a Movie" %>
               </div>
               <div id="titles-list-container">
                 <ul id="titles-list"></ul>
@@ -64,8 +64,6 @@
           </div>
         </li>
       </ul>
-
-
     </section>
   </nav>
 

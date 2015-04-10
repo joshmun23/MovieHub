@@ -15,7 +15,6 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    @feature = "Add"
   end
 
   def edit

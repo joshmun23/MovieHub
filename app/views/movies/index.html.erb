@@ -10,8 +10,12 @@
   <!-- <div class="feature-presentation"> -->
      <% @movies.each do |movie| %>
       <div class="carousel-movie-container">
-        <%= link_to image_tag(movie.poster, class: "carousel-picture"), movie_path(movie) %>
-        <p><%= movie.title %></p>
+        <div class="poster-container">
+          <%= link_to image_tag(movie.poster, class: "carousel-picture"), movie_path(movie) %>
+        </div>
+        <div class="title-container">
+          <p><%= movie.title %></p>
+        </div>
       </div>
     <% end %>
   </div>

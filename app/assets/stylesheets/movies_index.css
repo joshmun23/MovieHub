@@ -1,0 +1,199 @@
+/* movie index style */
+
+body {
+  background-image: url("theatre-curtains.jpg");
+  background-size: 100% 100%;
+  color: #fff;
+  font-weight: bold;
+  color: #fff;
+}
+
+.movie-header {
+}
+
+.test {
+  background-color: red;
+  display: inline-block;
+}
+
+.flash {
+  background-color: #49A840; /* green */
+  border-radius: 0.5em;
+  color: #fff;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  display: inline-block;
+}
+
+/* Small carousel styling */
+/* ====================== */
+
+.genres-carousel-container {
+  margin-top: 10em;
+  background-color: rgba(255,255,255,0.1);
+  padding: 1em;
+  width: 80%;
+}
+
+.title-container {
+  height: 4em;
+}
+
+.poster-container {
+  height: 17em;
+}
+
+.poster-container a img {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* ====================== */
+/* Small carousel styling */
+
+.cancel-review,
+.review-form {
+  display: none;
+}
+
+.movie-icons {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 1em;
+}
+
+.icons {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 1em;
+}
+
+.votes {
+  margin-left: 1.4em;
+}
+
+.vote-up,
+.vote-down {
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 1em;
+}
+
+.review-form {
+  display: none;
+}
+
+.has-form .button {
+  background-color :#990909;
+}
+
+.has-form .button:hover {
+  background-color :white;
+  border: solid;
+  border-width: .007em;
+  border-color: #990909;
+  color: #3C0201;
+  font-weight: bold;
+}
+
+.main-content {
+  margin-top: 1em;
+  width: 90%;
+  padding-left: 5em;
+  padding-right: 5em;
+  height: 74vh;
+  background-color: black;
+  box-shadow: 5px 5px 5px black;
+  border-radius: .6em;
+  overflow: scroll;
+  opacity: 1;
+  background-image: url(http://nilusi.com/images/img5/black-texture-design-inspiration-2.jpg);
+  background-size: 100% 100%;
+}
+
+.main-content::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background-color: #2a2827;
+  border-radius: 2em;
+}
+
+.body-content {
+  margin-left: 8%;
+}
+
+.movie-header h1 {
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 3px #FF0000, 0 0 10px yellow;
+  letter-spacing: .5em;
+  font-family: 'Lobster', cursive;
+  margin-top: -.1em;
+  margin-bottom: -.075em;
+}
+
+.big-carousel-container {
+  margin-top: 1em;
+  width: 60%;
+}
+
+.right {
+  border-bottom: solid;
+  border-width: .5em;
+  border-color: white;
+  border-radius: 5em;
+}
+
+.left {
+  border-bottom: solid;
+  border-width: .5em;
+  border-color: white;
+  border-radius: 5em;
+}
+
+.row-carousel {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: 1em;
+}
+
+.top-bar {
+  background-color: #3C0201;
+}
+
+.body-content .opacity-reset {
+  opacity: 1;
+}
+
+#titles-list-container {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  width: 50em;
+}
+
+#titles-list li {
+  list-style: none;
+  color: #000;
+}
+
+li {
+  list-style: none;
+}
+
+#profile-link {
+  margin: 0;
+  padding: 0;
+}
+
+#profile-icon {
+  width: 45px;
+  height: 45px;
+  margin: 0;
+  padding: 0;
+  margin-top: -3.5px;
+}

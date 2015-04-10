@@ -1,61 +1,17 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_self
- *= require foundation_and_overrides
- *= require_tree .
-
-
- */
-
-body {
-  background-image: url(http://scanachmedia.com/wp-content/uploads/2013/12/COLD-EDGE-BACKGROUND.jpg);
-  background-size: 100% 100%;
-}
-
-
-.test {
-  background-color: red;
-  display: inline-block;
-}
-
- .flash {
-  background-color: #49A840; /* green */
-  border-radius: 0.5em;
-  color: #fff;
-  padding: 0.5em;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  display: inline-block;
-}
-
-.cancel,
-.review-form {
-  display: none;
-}
-
-.icons {
-  width: 1.5em;
-  height: 1.5em;
-  margin: 1em;
-}
-
-.votes {
-  margin-left: 1.4em;
-}
-
-.vote-up,
-.vote-down {
-  width: 1.5em;
-  height: 1.5em;
-  margin-left: 1em;
-}
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require foundation_and_overrides
+*= require_self
+*= require_tree .
+*
+*/

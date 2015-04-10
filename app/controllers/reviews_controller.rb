@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   def create
     @movie = Movie.find(params[:movie_id])
@@ -17,13 +18,14 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @more_votes = true
     @review = Review.find(params[:id])
     @movie = Movie.find(params[:movie_id])
     if params[:votes]
       votes
-      if !@no_more_votes
+      if @more_votes
         @review.save
-        render json: @review
+        render 'movies/show'
       end
     elsif @review.update(review_params)
       redirect_to movie_path(@movie)
@@ -37,7 +39,6 @@ class ReviewsController < ApplicationController
     Review.delete(params[:id])
     flash[:notice] = 'Review deleted'
     @movie = Movie.find(params[:movie_id])
-
     redirect_to movie_path(@movie)
   end
 
@@ -50,8 +51,8 @@ class ReviewsController < ApplicationController
       UserVote.delete(current_vote)
     elsif !@vote.save
       respond_to do |format|
-        @no_more_votes = true
-        format.js { render json: @vote, status: 403 }
+        @more_votes = false
+        format.js { render 'movies/show', status: 403 }
       end
     end
   end
@@ -62,9 +63,4 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:body)
   end
 
-  def authorize_user
-    if !user_signed_in? || !current_user.admin?
-      raise ActionController::RoutingError.new("Not Found")
-    end
-  end
 end

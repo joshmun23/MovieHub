@@ -5,8 +5,15 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).concat [:user_name, :profile_photo]
-    devise_parameter_sanitizer.for(:account_update).concat [:profile_photo, :user_name]
+    devise_parameter_sanitizer.for(:account_update).concat [:user_name, :profile_photo]
+  end
+
+  def authorize_user
+    if !user_signed_in? || !current_user.admin?
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end

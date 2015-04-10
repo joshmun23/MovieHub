@@ -3,6 +3,8 @@
 //= require foundation
 //= require_tree .
 
+$(function() { $(document).foundation(); });
+
 $(function() {
   $('.flash').delay(1500).fadeOut(600);
 });
@@ -68,4 +70,34 @@ $('.vote-down a').on('click', function(){
   votesRequest.done(function() {
     $('.votes-' + number).text(plusVotes);
   });
+});
+
+// AUTOCOMPLETE MOVIE TITLE
+$('#movie_title').keyup(function() {
+  $('#titles-list').replaceWith('<ul id="titles-list"></ul>');
+  var movieTitle = $(this).val();
+  $('#titles-list-container').show();
+  var titlesRequest = $.ajax({
+    method: 'GET',
+    url: '/autocomplete',
+    data: { q: movieTitle }
+  });
+  titlesRequest.done(function(movieTitles) {
+    var data = JSON.parse(movieTitles);
+    for (i = 0; i < data.length; i++) {
+      $('#titles-list').append('<li><a class="title" href="#">' + data[i] + '</a><li>');
+    }
+    $('.title').on('click', function(e) {
+      e.preventDefault();
+      $('#titles-list-container').hide();
+      var selectedTitle = $(this).text();
+      $('#titles-list').replaceWith('<ul id="titles-list"></ul>');
+      $('#movie_title').val(selectedTitle);
+    });
+  });
+});
+
+$('#movie-submit').on('focusin',function() {
+  $('#titles-list-container').hide();
+  $('#titles-list').replaceWith('<ul id="titles-list"></ul>');
 });

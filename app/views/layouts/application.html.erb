@@ -74,15 +74,7 @@
     <%- end -%>
 
     <%= yield %>
+  <%= javascript_include_tag 'application' %>
   </div>
   </body>
-  <%= javascript_include_tag 'application' %>
-  <%= yield :extra_footer %>
-
-<!-- Other JS plugins can be included here -->
-
-<script>
-  $(document).foundation();
-</script>
-
 </html>

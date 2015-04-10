@@ -17,7 +17,6 @@ gem 'kaminari'
 gem "carrierwave"
 gem 'fog'
 gem "dotenv-rails"
-gem 'omdb'
 
 group :development, :test do
   gem 'rspec-rails'

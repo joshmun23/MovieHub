@@ -2,11 +2,16 @@ class MoviesController < ApplicationController
   before_action :find_movie, only: [:edit, :update, :show]
 
   def index
-    @movies = Movie.order(:title).page params[:page]
+    @movies = Movie.order(:title)
+    @trending_movies = MovieHelper.new(@movies).find_movies
+    @genres = MovieHelper.new(@movies).genre_splitter
   end
 
   def show
+    @movie = Movie.find(params[:id])
     @review = Review.new
+
+    render :show
   end
 
   def new
@@ -31,6 +36,8 @@ class MoviesController < ApplicationController
     end
   end
 
+
+
   def update
     @movie.user = current_user
 
@@ -39,6 +46,7 @@ class MoviesController < ApplicationController
       redirect_to movie_path(@movie)
     else
       flash[:alert] = @movie.errors.full_messages
+
       render :edit
     end
   end
@@ -51,7 +59,7 @@ class MoviesController < ApplicationController
   def get_movie
     omdb_movie = Omdb::Api.new.fetch(movie_params[:title])
     @movie.year = omdb_movie[:movie].year
-    @movie.poster = omdb_movie[:movie].poster
+    @movie.poster = omdb_movie[:movie].poster ? omdb_movie[:movie].poster : ''
     @movie.genre = omdb_movie[:movie].genre
     @movie.director = omdb_movie[:movie].director
     @movie.actors = omdb_movie[:movie].actors
@@ -61,25 +69,14 @@ class MoviesController < ApplicationController
     @movie.imdb_id = omdb_movie[:movie].imdb_id
   end
 
+
   protected
 
   def movie_params
-    params.require(:movie).permit(
-      :title,
-      :year,
-      :poster,
-      :genre,
-      :director,
-      :actors,
-      :runtime,
-      :rated,
-      :plot,
-      :imdb_id
-    )
+    params.require(:movie).permit(:title)
   end
 
   def find_movie
     @movie = Movie.find(params[:id])
   end
-
 end

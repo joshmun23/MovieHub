@@ -1,23 +1,34 @@
-<div class="movie_h3">
-  <h3>MovieHub</h3>
-</div>
+<div class="large-12 columns main-content">
+  <div id="index-page-container">
+    <h4 class="genre-title">Feature Presentation</h4>
+    <div class="big-carousel-container feature-presentation">
+      <% @trending_movies.each do |movie| %>
+        <div><%= link_to image_tag(movie.poster, class: "tending-movies-img"), movie_path(movie) %></div>
+      <% end %>
+    </div>
 
-<% if !@movies.empty? %>
-  <div class="movies">
-    <% @movies.each do | movie | %>
-      <div class="panel">
-        <span><%= link_to movie.title, movie_path(movie) %></span>
-        <%= movie.year %>
-        <span><%= link_to "Edit Movie", edit_movie_path(movie) %></span>
+    <% @genres.keys.each do |genre| %>
+      <h6 class="genre-title"><%= genre %></h6>
+      <div class="genres-carousel-container slider-nav">
+        <% @genres[genre].each do |movie| %>
+          <div class="carousel-movie-container">
+            <div class="poster-container">
+              <%= link_to image_tag(movie.poster, class: "carousel-picture"), movie_path(movie) %>
+            </div>
+            <div class="title-container">
+              <p><%= movie.title %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
+
+    <ul>
+      <% if current_user %>
+        <% if current_user.admin? %>
+          <h4>You are an Admin: <%= link_to "Got to Admin Functions", users_path %></h4>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
-<% end %>
-
-<ul>
-  <% if current_user && current_user.admin? %>
-    <h4>You are an Admin: <%= link_to "Got to Admin Functions", users_path %></h4>
-  <% end %>
-</ul>
-
-<%= paginate @movies %>
+</div>

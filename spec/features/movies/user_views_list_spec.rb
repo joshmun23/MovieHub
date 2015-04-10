@@ -12,26 +12,21 @@ feature 'user view a movie', %{
   end
 
   scenario 'see movie' do
-    movies = []
-    5.times do
-      movies << FactoryGirl.create(:movie)
-    end
+    movie_1 = FactoryGirl.create(:movie)
+    movie_2 = FactoryGirl.create(:movie, title: "title_2")
+    movie_3 = FactoryGirl.create(:movie, title: "title_3")
 
     visit movies_path
 
-    expect(page).to have_content(movies[0].title)
-    expect(page).to have_content(movies[1].title)
-    expect(page).to have_content(movies[2].title)
-    expect(page).to have_content(movies[3].title)
-    expect(page).to have_content(movies[4].title)
+    expect(page).to have_content(movie_1.title)
+    expect(page).to have_content(movie_2.title)
+    expect(page).to have_content(movie_3.title)
   end
 
   scenario 'view details of an movie' do
     movie = FactoryGirl.create(:movie)
 
-    visit movies_path
-
-    click_link movie.title
+    visit movie_path(movie)
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content(movie.year)

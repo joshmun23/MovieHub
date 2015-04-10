@@ -1,0 +1,68 @@
+h3 {
+  text-align: right;
+  padding-right: 2em;
+
+}
+
+.row-form {
+  margin-top: 15em;
+  margin-left: 35em;
+  margin-right: 35em;
+  text-align: center;
+}
+
+.row-form input {
+  background-color: #262626;
+  text-align: center;
+  border-radius: 5em;
+}
+
+.row-form label {
+  color: white;
+}
+
+.row-form .button {
+  margin-top: 1em;
+  border-radius: 5em;
+}
+
+.row-movie-index {
+  overflow: auto;
+}
+
+.movie-info li {
+  display: inline-block;
+}
+
+.r-container {
+  float: right;
+}
+
+.review-container {
+  padding-left: 10em;
+  padding-right: 10em;
+}
+
+.left-column {
+  margin-top: 1em;
+  position: fixed;
+  width: 20em;
+  overflow: auto;
+}
+
+.right-column .top-row {
+  position: fixed;
+}
+
+.right-column .bottom-row {
+  height: 10em;
+  overflow: auto;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+.row .movie-info {
+  padding-left: 10em;
+}

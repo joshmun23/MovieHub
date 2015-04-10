@@ -3,6 +3,8 @@
 //= require foundation
 //= require_tree .
 
+$(function() { $(document).foundation(); });
+
 $(function() {
   $('.flash').delay(1500).fadeOut(600);
 });
@@ -70,8 +72,7 @@ $('.vote-down a').on('click', function(){
   });
 });
 
-//auto-complete
-
+// AUTOCOMPLETE MOVIE TITLE
 $('#movie_title').keyup(function() {
   $('#titles-list').replaceWith('<ul id="titles-list"></ul>');
   var movieTitle = $(this).val();

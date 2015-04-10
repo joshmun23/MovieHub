@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'email_validator', '~> 1.5.0'
 gem 'devise'
 gem 'foundation-rails', github: "zurb/foundation-rails"
+gem 'rails-jquery-autocomplete'
+gem 'omdb'
 gem 'kaminari'
 gem "carrierwave"
 gem 'fog'

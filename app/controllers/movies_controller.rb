@@ -22,6 +22,7 @@ class MoviesController < ApplicationController
   end
 
   def create
+    omdb_movie = Omdb::Api.new.fetch(movie_params[:title])
     @movie = Movie.new(movie_params)
     @movie.user = current_user
     get_movie
@@ -42,7 +43,6 @@ class MoviesController < ApplicationController
 
     if @movie.update(movie_params)
       flash[:notice] = 'Movie Revised'
-
       redirect_to movie_path(@movie)
     else
       flash[:alert] = @movie.errors.full_messages
@@ -78,11 +78,5 @@ class MoviesController < ApplicationController
 
   def find_movie
     @movie = Movie.find(params[:id])
-  end
-
-  def authorize_user
-    if !user_signed_in? || !current_user.admin?
-      raise ActionController::RoutingError.new("Not Found")
-    end
   end
 end

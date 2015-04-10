@@ -1,0 +1,55 @@
+
+body {
+  background-image: url(http://scanachmedia.com/wp-content/uploads/2013/12/COLD-EDGE-BACKGROUND.jpg);
+  background-size: 100% 100%;
+}
+
+.test {
+  background-color: red;
+  display: inline-block;
+}
+
+ .flash {
+  background-color: #49A840; /* green */
+  border-radius: 0.5em;
+  color: #fff;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  display: inline-block;
+}
+
+.cancel,
+.review-form {
+  display: none;
+}
+
+.icons {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 1em;
+}
+
+.votes {
+  margin-left: 1.4em;
+}
+
+.vote-up,
+.vote-down {
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 1em;
+}
+
+#titles-list-container {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  width: 50em;
+}
+
+#titles-list li {
+  list-style: none;
+  color: #000;
+}

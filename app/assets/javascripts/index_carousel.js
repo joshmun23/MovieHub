@@ -1,8 +1,7 @@
 $(document).ready(function(){
   $('.slider-nav').slick({
-  centerMode: true,
   centerPadding: '40px',
-  slidesToShow: 3,
+  slidesToShow: 5,
   autoplay: false,
   autoplaySpeed: 1000,
 
@@ -11,16 +10,14 @@ $(document).ready(function(){
       breakpoint: 768,
       settings: {
         arrows: false,
-        centerMode: true,
         centerPadding: '40px',
-        slidesToShow: 3
+        slidesToShow: 1
       }
     },
     {
       breakpoint: 480,
       settings: {
         arrows: false,
-        centerMode: true,
         centerPadding: '40px',
         slidesToShow: 1
       }
@@ -28,16 +25,3 @@ $(document).ready(function(){
   ]
 });
 });
-
-
-// $('.slider-nav').slick({
-//   slidesToShow: 8,
-//   slidesToScroll: 5,
-//   autoplay: true,
-//   arrows: true,
-//   autoplaySpeed: 1000,
-//   asNavFor: '.slider-for',
-//   dots: false,
-//   centerMode: true,
-//   focusOnSelect: true
-// });

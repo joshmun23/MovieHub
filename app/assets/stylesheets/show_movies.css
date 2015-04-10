@@ -1,0 +1,21 @@
+.movie-details-container {
+  background-color: black;
+  box-shadow: 5px 5px 5px black;
+  border-radius: .6em;
+  width: 90%;
+  padding-left: 5em;
+  padding-right: 5em;
+  height: 68Vh;
+}
+
+.left-column {
+  padding-top: 1Vh;
+  height: 68Vh;
+  overflow: auto;
+}
+
+.right-column {
+  padding-top: 1Vh;
+  height: 68Vh;
+  overflow: auto;
+}

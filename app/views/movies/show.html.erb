@@ -1,28 +1,24 @@
-<div class='large-12 columns'>
-  <div class="left-column large-2 columns">
-    <% if current_user && (@movie.user == current_user || current_user.admin?) %>
-    <% end %>
-    <div class="row">
-      <div><%= image_tag(@movie.poster) %></div>
-    </div>
+<div class="row movie-details-container">
+  <div class="left-column small-4 columns">
+    <div><%= image_tag(@movie.poster) %></div>
 
-    <div class="row movie-info">
-      <ul>
-        <div class="small-11 columns">
-          <li><h3><%= @movie.title %></h3></li>
-          <li><p><%= @movie.year %></p></li>
-        </div>
-      </ul>
+    <div class="small-11 columns">
+      <h3><%= @movie.title %></h3>
+      <p><%= @movie.year %></p>
+      <p><%= @movie.genre %> | Rated(<%= @movie.rated %>)</p>
+      <p><%= @movie.plot %></p>
+    </div>
+    <% if current_user && (@movie.user == current_user || current_user.admin?) %>
       <div class="movie-icons">
         <%= link_to image_tag("edit-icon.png"), edit_movie_path(@movie) %>
       </div>
       <div class="movie-icons delete-movie">
         <%= link_to image_tag("delete-icon.png"), movie_path(@movie), method: :delete %>
       </div>
-    </div>
+    <% end %>
   </div>
 
-  <div class="large-10 columns">
+  <div class="right-column small-8 columns">
     <div class="review-container">
       <div class="row right-column top-row">
         <fieldset>

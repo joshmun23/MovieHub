@@ -30,25 +30,6 @@ h3 {
   overflow: auto;
 }
 
-.slider-for img {
-  width: 30em;
-  height: auto;
-  margin: 5em;
-}
-
-.feature-presentation img {
-  width: 60%;
-  height: auto;
-  opacity: 1;
-  border: 1px solid red;
-}
-
-  .feature-presentation {
-  width: 60%;
-  border: 1px solid red;
-}
-
-
 .movie-info li {
   display: inline-block;
 }
@@ -66,7 +47,7 @@ h3 {
   margin-top: 1em;
   position: fixed;
   width: 20em;
-  height: auto;
+  overflow: auto;
 }
 
 .right-column .top-row {
@@ -85,40 +66,3 @@ h3 {
 .row .movie-info {
   padding-left: 10em;
 }
-
-#index-page-container {
-  width: 100em;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.genres-carousel-container {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.big-carousel-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-}
-
-.tending-movies-img {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-}
-
-.carousel-picture {
-  width: 10em;
-  height: auto;
-  padding: 0em;
-}
-
-.carousel-movie-container {
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-
